@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aiParkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c17"/>
+      <stop offset="100%" stop-color="#02040a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#aiParkGrad)"/>
+  <g stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none">
+    <rect x="80" y="70" width="120" height="140" rx="6"/>
+    <rect x="230" y="70" width="120" height="140" rx="6"/>
+    <rect x="380" y="70" width="120" height="140" rx="6"/>
+    <rect x="530" y="70" width="120" height="140" rx="6" stroke="#10b981" stroke-width="2"/>
+  </g>
+  
+  <rect x="95" y="85" width="90" height="110" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="105" y="105" font-family="'Fira Code', monospace" font-size="11" fill="#ef4444">OCCUPIED</text>
+  
+  <rect x="245" y="85" width="90" height="110" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="255" y="105" font-family="'Fira Code', monospace" font-size="11" fill="#ef4444">OCCUPIED</text>
+
+  <rect x="395" y="85" width="90" height="110" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="405" y="105" font-family="'Fira Code', monospace" font-size="11" fill="#ef4444">OCCUPIED</text>
+
+  <rect x="545" y="85" width="90" height="110" rx="4" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
+  <text x="555" y="105" font-family="'Fira Code', monospace" font-size="12" font-weight="bold" fill="#10b981">AVAILABLE</text>
+
+  <rect x="80" y="250" width="640" height="140" rx="8" fill="#0c1527" fill-opacity="0.9" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+  <text x="110" y="285" font-family="'Fira Code', monospace" font-size="14" font-weight="600" fill="#06b6d4">[AI SMART PARKING MANAGEMENT]</text>
+  <text x="110" y="318" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#ffffff">Computer Vision Occupancy Detection</text>
+  <text x="110" y="348" font-family="'Fira Code', monospace" font-size="13" fill="#94a3b8">Detection Accuracy: 98.6% · Frame Rate: 30 FPS · Auto-Ticketing: ACTIVE</text>
+  <text x="110" y="372" font-family="'Fira Code', monospace" font-size="12" fill="#10b981">● Neural Stream: Operational</text>
+</svg>
