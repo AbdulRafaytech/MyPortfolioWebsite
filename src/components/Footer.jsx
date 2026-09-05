@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import { ArrowUp, Mail, Phone, ExternalLink } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Footer() {
@@ -18,9 +18,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#050508] border-t border-zinc-800 pt-16 pb-12 text-zinc-300 font-['Inter',sans-serif]">
+    <footer className="relative z-20 bg-zinc-950 border-t-2 border-zinc-800 pt-16 pb-12 text-zinc-200 font-['Inter',sans-serif] shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Multi-Column Rich Footer Content with Bright, High-Contrast Legibility */}
+        {/* Multi-Column High-Visibility Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-zinc-800 text-left">
           {/* Column 1: Brand & Bio (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
@@ -38,38 +38,38 @@ export default function Footer() {
                 href="https://github.com/AbdulRafaytech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-100 hover:text-white transition-colors"
+                className="p-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-zinc-500 text-white hover:bg-zinc-800 transition-all shadow-md"
                 title="GitHub"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-5 h-5" />
               </a>
 
               <a
                 href="https://www.linkedin.com/in/abdulrafaytech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-100 hover:text-white transition-colors"
+                className="p-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-zinc-500 text-white hover:bg-zinc-800 transition-all shadow-md"
                 title="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-5 h-5" />
               </a>
 
               <a
                 href="https://wa.me/923075468990"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-emerald-900/60 border border-emerald-700/80 text-emerald-300 hover:text-white hover:bg-emerald-800 transition-colors"
+                className="p-3 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 hover:text-white hover:bg-emerald-900 transition-all shadow-md"
                 title="WhatsApp"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
               </a>
 
               <a
                 href="mailto:rafaydev7@gmail.com"
-                className="p-2.5 rounded-lg bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-100 hover:text-white transition-colors"
+                className="p-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-zinc-500 text-white hover:bg-zinc-800 transition-all shadow-md"
                 title="Email"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-zinc-300 hover:text-white hover:underline transition-colors block"
+                    className="text-zinc-300 hover:text-white hover:underline transition-colors block font-medium"
                   >
                     {link.name}
                   </a>
@@ -93,7 +93,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact & Status (4 cols) */}
+          {/* Column 3: Contact & Coordinates (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <h4 className="text-xs font-mono uppercase text-white tracking-wider font-bold mb-4">
               Direct Coordinates
@@ -102,7 +102,7 @@ export default function Footer() {
             <div className="space-y-2.5 text-sm font-mono">
               <div>
                 <span className="text-xs text-zinc-400 block font-semibold">Email:</span>
-                <a href="mailto:rafaydev7@gmail.com" className="text-zinc-100 hover:text-indigo-300 transition-colors font-medium">
+                <a href="mailto:rafaydev7@gmail.com" className="text-white hover:text-indigo-300 transition-colors font-bold">
                   rafaydev7@gmail.com
                 </a>
               </div>
@@ -121,26 +121,26 @@ export default function Footer() {
 
               <div>
                 <span className="text-xs text-zinc-400 block font-semibold">Location:</span>
-                <span className="text-zinc-200">Lahore, Pakistan (Remote Worldwide)</span>
+                <span className="text-zinc-200 font-medium">Lahore, Pakistan (Remote Worldwide)</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar with High Contrast */}
+        {/* Bottom Bar with High Contrast Legibility */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
-          <div className="text-zinc-200 font-semibold">
+          <div className="text-zinc-200 font-bold">
             © 2026 Abdul Rafay. All Rights Reserved.
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="text-zinc-400 hidden md:inline">
+            <span className="text-zinc-400 hidden md:inline font-medium">
               React 19 · Vite · Tailwind CSS · Vercel
             </span>
 
             <button
               onClick={scrollToTop}
-              className="hover:text-white transition-colors inline-flex items-center gap-1.5 cursor-pointer text-zinc-300 hover:bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700 font-bold"
+              className="hover:text-white transition-colors inline-flex items-center gap-1.5 cursor-pointer text-zinc-200 hover:bg-zinc-800 px-3.5 py-2 rounded-xl border border-zinc-700 font-bold bg-zinc-900 shadow-md"
             >
               <ArrowUp className="w-3.5 h-3.5" /> Back to top
             </button>

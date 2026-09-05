@@ -35,14 +35,14 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#05070e] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-indigo-500/30 selection:text-indigo-200">
       {/* Interactive Background Canvas */}
       <BackgroundFX />
 
       {/* Navigation */}
       <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
 
-      {/* Main Content */}
+      {/* Main Content & Sections */}
       <main className="relative z-10">
         <Hero onOpenTerminal={() => setTerminalOpen(true)} />
         <About />
@@ -52,10 +52,9 @@ export default function App() {
         <Skills />
         <Education />
         <Contact onShowToast={showToast} />
+        {/* Footer placed inside relative z-10 for guaranteed high visibility */}
+        <Footer />
       </main>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Lightbox Modal for Certificate High-Res Inspection */}
       <CertificateModal
@@ -71,8 +70,8 @@ export default function App() {
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 border border-cyan-500/50 text-cyan-300 px-4 py-2.5 rounded-xl font-mono text-xs shadow-2xl shadow-cyan-950/60 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+        <div className="fixed bottom-6 right-6 z-50 bg-zinc-900 border border-indigo-500/50 text-indigo-300 px-4 py-2.5 rounded-xl font-mono text-xs shadow-2xl shadow-black flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span>{toastMessage}</span>
         </div>
       )}
