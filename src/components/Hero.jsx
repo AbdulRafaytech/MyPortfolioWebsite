@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock, Code2 } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Code2, Eye, Sparkles } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
   const [time, setTime] = useState('');
+  const [activePhoto, setActivePhoto] = useState('side'); // 'side' | 'front'
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -21,6 +23,11 @@ export default function Hero({ onOpenTerminal }) {
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  // Displayed image depends on manual toggle or hover state
+  const currentPhotoSrc = (isHovered && activePhoto === 'side') 
+    ? '/profile-front.jpg' 
+    : (activePhoto === 'front' ? '/profile-front.jpg' : '/profile-side.jpg');
 
   return (
     <section id="hero" className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-zinc-900/80">
@@ -98,22 +105,28 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Profile Picture Frame on the Right with Picture Centered in the Frame */}
-          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
-            <div className="relative group">
+          {/* Right Column: Animated Studio Portrait with Interactive Dual-Angle Transition */}
+          <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end">
+            <div
+              className="relative group cursor-pointer"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               {/* Soft Ambient Glowing Aura */}
               <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-cyan-400/40 opacity-70 blur-2xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
 
               {/* Outer Rotating Gradient Ring */}
               <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-700 via-indigo-500/70 to-zinc-600 shadow-2xl">
-                {/* Clean Circular Frame with Picture Perfectly Centered Inside */}
-                <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl flex items-center justify-center relative">
+                {/* Clean Circular Frame with Studio Photo */}
+                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl relative">
                   <img
-                    src="/profile.jpg"
+                    src={currentPhotoSrc}
                     alt="Abdul Rafay"
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                     loading="eager"
                   />
+                  {/* Subtle Scanline Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </div>
 
@@ -127,6 +140,31 @@ export default function Hero({ onOpenTerminal }) {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Active Coder</span>
               </div>
+            </div>
+
+            {/* Interactive Angle Switcher Controls */}
+            <div className="mt-5 flex items-center gap-2 bg-zinc-950/90 border border-zinc-800/90 px-3 py-1.5 rounded-full text-xs font-mono shadow-md">
+              <span className="text-zinc-500 text-[11px]">Portrait View:</span>
+              <button
+                onClick={() => setActivePhoto('side')}
+                className={`px-2.5 py-0.5 rounded-full transition-colors cursor-pointer ${
+                  activePhoto === 'side'
+                    ? 'bg-indigo-600 text-white font-bold'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                90° Angle
+              </button>
+              <button
+                onClick={() => setActivePhoto('front')}
+                className={`px-2.5 py-0.5 rounded-full transition-colors cursor-pointer ${
+                  activePhoto === 'front'
+                    ? 'bg-indigo-600 text-white font-bold'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                Front View
+              </button>
             </div>
           </div>
         </div>
