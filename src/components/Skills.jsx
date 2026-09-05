@@ -7,22 +7,18 @@ export default function Skills() {
   const skillCategories = [
     {
       category: 'Languages',
-      accent: 'border-cyan-500/30 text-cyan-300',
       skills: ['JavaScript (ES6+)', 'Java', 'Python', 'C++', 'SQL'],
     },
     {
       category: 'Frontend & UI',
-      accent: 'border-sky-500/30 text-sky-300',
       skills: ['HTML5', 'CSS3', 'Bootstrap', 'Responsive Design', 'React'],
     },
     {
       category: 'Backend & Database',
-      accent: 'border-indigo-500/30 text-indigo-300',
       skills: ['Node.js', 'Express.js', 'REST APIs', 'MongoDB', 'MySQL', 'SQLite'],
     },
     {
       category: 'Cloud, Tools & Concepts',
-      accent: 'border-emerald-500/30 text-emerald-300',
       skills: ['Vercel Deployment', 'Git/GitHub', 'OOP', 'DSA', 'IntelliJ IDEA', 'Maven'],
     },
   ];
@@ -56,7 +52,7 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Clean Skills Grid */}
+        {/* Clean, Uniform Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
           {skillCategories.map((group, idx) => {
             const filteredSkills = group.skills.filter((s) =>
@@ -75,21 +71,14 @@ export default function Skills() {
                 </h3>
 
                 <div className="flex flex-wrap gap-2">
-                  {filteredSkills.map((skill, sIdx) => {
-                    const isVercel = skill.includes('Vercel');
-                    return (
-                      <span
-                        key={sIdx}
-                        className={`text-xs font-mono px-2.5 py-1 rounded transition-colors ${
-                          isVercel
-                            ? 'bg-white text-black font-bold border border-white'
-                            : 'bg-zinc-900 text-zinc-300 border border-zinc-800 hover:border-zinc-700'
-                        }`}
-                      >
-                        {skill}
-                      </span>
-                    );
-                  })}
+                  {filteredSkills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900 text-zinc-300 border border-zinc-800 hover:border-zinc-700 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             );

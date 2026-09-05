@@ -4,7 +4,7 @@ import { X, Terminal as TerminalIcon, CornerDownLeft } from 'lucide-react';
 export default function InteractiveTerminal({ isOpen, onClose }) {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
-    { text: 'Abdul Rafay Interactive Cyber CLI [Version 2.7.0]', type: 'system' },
+    { text: 'Abdul Rafay Interactive Cyber CLI [Version 2.8.0]', type: 'system' },
     { text: 'Type "help" to list available commands or "whoami" to view profile.', type: 'info' },
   ]);
   const inputRef = useRef(null);
@@ -34,7 +34,7 @@ export default function InteractiveTerminal({ isOpen, onClose }) {
     switch (cmd) {
       case 'help':
         newHistory.push({
-          text: 'Available Commands:\n  whoami      - View developer positioning & bio\n  skills      - List technical skills & cloud tools\n  projects    - Show core projects & links\n  exp         - View work and internship experience\n  certs       - List certifications\n  education   - Academic degree & CGPA\n  contact     - Email and social coordinates\n  clear       - Clear terminal window\n  exit        - Close terminal',
+          text: 'Available Commands:\n  whoami      - View developer positioning & bio\n  skills      - List technical skills & cloud tools\n  projects    - Show core projects & links\n  exp         - View work and internship experience\n  certs       - List certifications\n  education   - Academic degree & CGPA\n  contact     - Email, WhatsApp, phone and social coordinates\n  clear       - Clear terminal window\n  exit        - Close terminal',
           type: 'output',
         });
         break;
@@ -83,7 +83,7 @@ export default function InteractiveTerminal({ isOpen, onClose }) {
 
       case 'contact':
         newHistory.push({
-          text: 'Email: rafaydev7@gmail.com\nLinkedIn: https://www.linkedin.com/in/abdulrafaytech\nGitHub: https://github.com/AbdulRafaytech',
+          text: 'Email: rafaydev7@gmail.com\nPhone / WhatsApp: +92 307 5468990\nLinkedIn: https://www.linkedin.com/in/abdulrafaytech\nGitHub: https://github.com/AbdulRafaytech',
           type: 'output',
         });
         break;
@@ -127,7 +127,7 @@ export default function InteractiveTerminal({ isOpen, onClose }) {
               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
             </div>
             <span className="text-xs font-mono text-zinc-300 ml-2 font-semibold flex items-center gap-1.5">
-              <TerminalIcon className="w-3.5 h-3.5 text-zinc-400" />
+              <TerminalIcon className="w-3.5 h-3.5 text-indigo-400" />
               abdul-rafay@terminal:~$
             </span>
           </div>
@@ -169,7 +169,7 @@ export default function InteractiveTerminal({ isOpen, onClose }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleCommand}
-            placeholder="Type a command (e.g. whoami, skills, projects, certs)..."
+            placeholder="Type a command (e.g. whoami, skills, projects, certs, contact)..."
             className="flex-1 bg-transparent border-none text-white focus:outline-none"
           />
           <button onClick={handleCommand} className="text-zinc-500 hover:text-white cursor-pointer">

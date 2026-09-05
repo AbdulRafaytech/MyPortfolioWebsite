@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Sparkles, Code2, Terminal } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
@@ -40,11 +40,11 @@ export default function Hero({ onOpenTerminal }) {
             </h1>
 
             {/* Subtitle - Exact: Backend & AI Assisted Workflows */}
-            <h2 className="mt-4 text-xl sm:text-2xl font-bold text-zinc-300 font-mono tracking-tight">
+            <h2 className="mt-4 text-xl sm:text-2xl font-bold text-indigo-300 font-mono tracking-tight">
               Backend &amp; AI Assisted Workflows
             </h2>
 
-            {/* Description - Sharp Inter typography mentioning backend, AI workflows, and Vercel cloud deployment */}
+            {/* Description */}
             <p className="mt-4 text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed font-['Inter',sans-serif]">
               Computer Science undergraduate building modern server-side APIs, database systems, and intelligent development workflows with seamless deployment on Vercel and cloud platforms.
             </p>
@@ -77,7 +77,7 @@ export default function Hero({ onOpenTerminal }) {
               </a>
             </div>
 
-            {/* Redesigned Sharp, Modern Geometric Telemetry HUD */}
+            {/* Sharp Geometric Telemetry HUD */}
             <div className="mt-10 pt-6 border-t border-zinc-900/90 w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
                 <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Status</span>
@@ -85,7 +85,7 @@ export default function Hero({ onOpenTerminal }) {
               </div>
               <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
                 <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Local Time</span>
-                <span className="text-xs font-bold text-zinc-200 font-mono mt-1 block">{time || '11:20 PM PKT'}</span>
+                <span className="text-xs font-bold text-zinc-200 font-mono mt-1 block">{time || '12:35 AM PKT'}</span>
               </div>
               <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
                 <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Location</span>
@@ -93,25 +93,39 @@ export default function Hero({ onOpenTerminal }) {
               </div>
               <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
                 <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Primary Focus</span>
-                <span className="text-xs font-bold text-zinc-200 font-mono mt-1 block truncate">Backend &amp; AI</span>
+                <span className="text-xs font-bold text-indigo-300 font-mono mt-1 block truncate">Backend &amp; AI</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Modern, Borderless Profile Picture with Soft Horizon Backlight */}
+          {/* Right Column: Modern Animated Profile Portrait */}
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* Soft atmospheric halo light behind portrait */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-zinc-700/30 via-white/10 to-indigo-900/20 opacity-50 blur-2xl group-hover:opacity-75 transition duration-500"></div>
+              {/* Outer Animated Glowing Gradient Aura */}
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-cyan-400/30 opacity-60 blur-xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
 
-              {/* Borderless, crisp circular photo with smooth dark shadow */}
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl shadow-black bg-zinc-950">
-                <img
-                  src="/profile.jpg"
-                  alt="Abdul Rafay"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  loading="eager"
-                />
+              {/* Animated Rotating Border Ring */}
+              <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-800 via-indigo-500/50 to-zinc-700 shadow-2xl">
+                {/* Clean, Sharp Profile Portrait Frame */}
+                <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl relative">
+                  <img
+                    src="/profile.jpg"
+                    alt="Abdul Rafay"
+                    className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+
+              {/* Modern Floating Tech Micro-Badges */}
+              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 text-[11px] font-mono text-zinc-300">
+                <Code2 className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Backend // AI</span>
+              </div>
+
+              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Active Coder</span>
               </div>
             </div>
           </div>
