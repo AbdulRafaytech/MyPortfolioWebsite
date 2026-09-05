@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock, Sparkles, Code2, Terminal } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Code2 } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
@@ -79,52 +79,52 @@ export default function Hero({ onOpenTerminal }) {
 
             {/* Sharp Geometric Telemetry HUD */}
             <div className="mt-10 pt-6 border-t border-zinc-900/90 w-full grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
-                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Status</span>
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 shadow-md">
+                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider font-semibold">STATUS</span>
                 <span className="text-xs font-bold text-emerald-400 font-mono mt-1 block">● Open to Work</span>
               </div>
-              <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
-                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Local Time</span>
-                <span className="text-xs font-bold text-zinc-200 font-mono mt-1 block">{time || '12:35 AM PKT'}</span>
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 shadow-md">
+                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider font-semibold">LOCAL TIME</span>
+                <span className="text-xs font-bold text-zinc-100 font-mono mt-1 block">{time || '12:45 AM PKT'}</span>
               </div>
-              <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
-                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Location</span>
-                <span className="text-xs font-bold text-zinc-200 font-mono mt-1 block truncate">Lahore, PK (Remote)</span>
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 shadow-md">
+                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider font-semibold">LOCATION</span>
+                <span className="text-xs font-bold text-zinc-100 font-mono mt-1 block truncate">Lahore, PK (Remote)</span>
               </div>
-              <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-900">
-                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider">Primary Focus</span>
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 shadow-md">
+                <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider font-semibold">PRIMARY FOCUS</span>
                 <span className="text-xs font-bold text-indigo-300 font-mono mt-1 block truncate">Backend &amp; AI</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Modern Animated Profile Portrait */}
+          {/* Right Column: Perfectly Filled Circular Profile Picture with Zero Blank Spaces */}
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* Outer Animated Glowing Gradient Aura */}
+              {/* Soft Ambient Halo */}
               <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-cyan-400/30 opacity-60 blur-xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
 
-              {/* Animated Rotating Border Ring */}
-              <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-800 via-indigo-500/50 to-zinc-700 shadow-2xl">
-                {/* Clean, Sharp Profile Portrait Frame */}
-                <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl relative">
+              {/* Outer Circular Ring */}
+              <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-700 via-indigo-500/60 to-zinc-600 shadow-2xl">
+                {/* Clean, Full Circular Frame */}
+                <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden bg-zinc-900 shadow-2xl relative">
                   <img
                     src="/profile.jpg"
                     alt="Abdul Rafay"
-                    className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="eager"
                   />
                 </div>
               </div>
 
-              {/* Modern Floating Tech Micro-Badges */}
-              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 text-[11px] font-mono text-zinc-300">
+              {/* Floating Modern Micro-Badges */}
+              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-zinc-200">
                 <Code2 className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Backend // AI</span>
               </div>
 
-              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Active Coder</span>
               </div>
             </div>

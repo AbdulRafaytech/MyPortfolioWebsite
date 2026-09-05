@@ -1,27 +1,31 @@
 import React from 'react';
-import { Server, Cpu, Database, Cloud } from 'lucide-react';
+import { Server, Cpu, Database, Cloud, Code2, Terminal, CheckCircle2, Award } from 'lucide-react';
 
 export default function About() {
   const pillars = [
     {
       title: 'Server-Side & APIs',
-      desc: 'Developing modular REST endpoints, request validation, and database operations with Node.js, Python & Java.',
+      desc: 'Architecting robust REST endpoints, request validation, authentication pipelines, and modular backend logic with Node.js, Express, Java, and Python.',
       icon: Server,
+      accent: 'text-indigo-400',
     },
     {
       title: 'AI-Assisted Workflows',
-      desc: 'Leveraging modern LLM tooling, automated scripting, and prompt-driven architecture for rapid engineering.',
+      desc: 'Integrating modern LLM frameworks, automated code intelligence, prompt engineering patterns, and AI-accelerated development lifecycles.',
       icon: Cpu,
+      accent: 'text-cyan-400',
     },
     {
-      title: 'Scalable Databases',
-      desc: 'Applying OOP principles, database indexing, and structured data handling across SQL & NoSQL data stores.',
+      title: 'Scalable Databases & Architecture',
+      desc: 'Applying Object-Oriented principles, relational schema design, indexing, and structured data handling across MySQL, MongoDB, and SQLite.',
       icon: Database,
+      accent: 'text-emerald-400',
     },
     {
       title: 'Cloud & Vercel Deployment',
-      desc: 'Automating continuous deployments (CI/CD) and serverless hosting on Vercel and modern cloud platforms.',
+      desc: 'Automating continuous deployment pipelines (CI/CD), environment management, and production cloud hosting on Vercel and serverless architectures.',
       icon: Cloud,
+      accent: 'text-purple-400',
     },
   ];
 
@@ -34,54 +38,55 @@ export default function About() {
             About Me
           </h2>
           <p className="text-sm font-mono text-zinc-400 mt-1">
-            Background, core competencies, and software engineering philosophy.
+            Software engineering philosophy, technical positioning, and core competencies.
           </p>
         </div>
 
-        {/* Clean, unboxed editorial layout with Inter typography */}
+        {/* Clean, high-impact editorial layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7 text-left space-y-5 text-base sm:text-lg text-zinc-300 leading-relaxed font-['Inter',sans-serif]">
             <p>
-              Computer Science undergraduate with hands-on experience in Java OOP, Python automation, and JavaScript-based web development. Currently building <strong className="text-white font-bold">backend</strong> development skills with Node.js, modern web technologies, and cloud deployments on Vercel through practical <strong className="text-white font-bold">AI-assisted development workflows</strong>.
+              I am a <strong className="text-white font-bold">Computer Science undergraduate</strong> with a strong focus on backend systems, clean architecture, and modern full-stack development. My technical journey spans hands-on experience in <strong className="text-white font-bold">Java OOP</strong>, <strong className="text-white font-bold">Python automation</strong>, <strong className="text-white font-bold">Node.js / Express backend services</strong>, and modern client interfaces built with React.
             </p>
             <p>
-              Strong interest in APIs, databases, scalable systems, and problem solving. Actively contributing to internship-level projects while pursuing a long-term goal in Full-Stack and <strong className="text-white font-bold">Backend</strong> Engineering.
+              I actively implement <strong className="text-white font-bold">AI-assisted development workflows</strong> to accelerate system design, automate repetitive pipelines, and maintain rigorous code quality. With multiple hands-on internships completed and live projects deployed on <strong className="text-white font-bold">Vercel</strong>, my objective is building reliable, scalable software solutions that solve real-world problems.
             </p>
 
+            {/* Engineering Metric Badges */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
-              <div className="border-l-2 border-indigo-500 pl-3">
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-indigo-500">
                 <span className="text-2xl font-black text-white block">5+</span>
                 <span className="text-xs text-zinc-400">Internships</span>
               </div>
-              <div className="border-l-2 border-cyan-500 pl-3">
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-cyan-500">
                 <span className="text-2xl font-black text-white block">7</span>
                 <span className="text-xs text-zinc-400">Certifications</span>
               </div>
-              <div className="border-l-2 border-purple-500 pl-3">
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-purple-500">
                 <span className="text-2xl font-black text-white block">5</span>
                 <span className="text-xs text-zinc-400">Key Projects</span>
               </div>
-              <div className="border-l-2 border-emerald-500 pl-3">
+              <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-emerald-500">
                 <span className="text-2xl font-black text-white block">3.38</span>
-                <span className="text-xs text-zinc-400">BS CS CGPA</span>
+                <span className="text-xs text-zinc-400">NUML CGPA</span>
               </div>
             </div>
           </div>
 
-          {/* Right side pillars with distinct subtle card tints */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+          {/* Right side pillars with rich modern card styling */}
+          <div className="lg:col-span-5 grid grid-cols-1 gap-3.5">
             {pillars.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-800/80 hover:border-zinc-500 transition-all text-left shadow-sm"
+                  className="p-4.5 rounded-xl bg-zinc-950/90 border border-zinc-800/90 hover:border-zinc-600 transition-all text-left shadow-md group"
                 >
                   <div className="flex items-center gap-3 mb-1.5">
-                    <Icon className="w-4 h-4 text-indigo-400" />
+                    <Icon className={`w-5 h-5 ${item.accent} group-hover:scale-110 transition-transform`} />
                     <h3 className="text-sm font-bold text-white font-['Montserrat',sans-serif]">{item.title}</h3>
                   </div>
-                  <p className="text-xs text-zinc-300 leading-normal font-['Inter',sans-serif]">{item.desc}</p>
+                  <p className="text-xs text-zinc-400 leading-normal font-['Inter',sans-serif] pl-8">{item.desc}</p>
                 </div>
               );
             })}
