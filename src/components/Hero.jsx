@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock, Code2, Eye, Sparkles } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Code2, Sparkles, RefreshCw } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
   const [time, setTime] = useState('');
-  const [activePhoto, setActivePhoto] = useState('side'); // 'side' | 'front'
+  const [activePhoto, setActivePhoto] = useState('front'); // 'front' | 'side'
   const [isHovered, setIsHovered] = useState(false);
 
+  // Live Clock
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -24,9 +25,17 @@ export default function Hero({ onOpenTerminal }) {
     return () => clearInterval(timer);
   }, []);
 
-  // Displayed image depends on manual toggle or hover state
-  const currentPhotoSrc = (isHovered && activePhoto === 'side') 
-    ? '/profile-front.jpg' 
+  // Automatic Smooth Angle Switching Timer (Every 4.5 seconds)
+  useEffect(() => {
+    if (isHovered) return; // Pause auto-rotation when user is interacting
+    const interval = setInterval(() => {
+      setActivePhoto((prev) => (prev === 'front' ? 'side' : 'front'));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const displayPhoto = isHovered 
+    ? (activePhoto === 'front' ? '/profile-side.jpg' : '/profile-front.jpg')
     : (activePhoto === 'front' ? '/profile-front.jpg' : '/profile-side.jpg');
 
   return (
@@ -105,12 +114,14 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Animated Studio Portrait with Interactive Dual-Angle Transition */}
+          {/* Right Column: Animated Studio Portrait with Auto Angle Transition */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end">
             <div
               className="relative group cursor-pointer"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              onClick={() => setActivePhoto((prev) => (prev === 'front' ? 'side' : 'front'))}
+              title="Click or hover to toggle studio angle"
             >
               {/* Soft Ambient Glowing Aura */}
               <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-cyan-400/40 opacity-70 blur-2xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
@@ -120,12 +131,12 @@ export default function Hero({ onOpenTerminal }) {
                 {/* Clean Circular Frame with Studio Photo */}
                 <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl relative">
                   <img
-                    src={currentPhotoSrc}
+                    src={displayPhoto}
                     alt="Abdul Rafay"
                     className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
                     loading="eager"
                   />
-                  {/* Subtle Scanline Overlay */}
+                  {/* Subtle Scanline Overlay on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </div>
@@ -142,29 +153,28 @@ export default function Hero({ onOpenTerminal }) {
               </div>
             </div>
 
-            {/* Interactive Angle Switcher Controls */}
-            <div className="mt-5 flex items-center gap-2 bg-zinc-950/90 border border-zinc-800/90 px-3 py-1.5 rounded-full text-xs font-mono shadow-md">
-              <span className="text-zinc-500 text-[11px]">Portrait View:</span>
-              <button
-                onClick={() => setActivePhoto('side')}
-                className={`px-2.5 py-0.5 rounded-full transition-colors cursor-pointer ${
-                  activePhoto === 'side'
-                    ? 'bg-indigo-600 text-white font-bold'
-                    : 'text-zinc-400 hover:text-white'
-                }`}
-              >
-                90° Angle
-              </button>
-              <button
-                onClick={() => setActivePhoto('front')}
-                className={`px-2.5 py-0.5 rounded-full transition-colors cursor-pointer ${
-                  activePhoto === 'front'
-                    ? 'bg-indigo-600 text-white font-bold'
-                    : 'text-zinc-400 hover:text-white'
-                }`}
-              >
-                Front View
-              </button>
+            {/* Sleek Minimalist Perspective Controls (No Clunky Words) */}
+            <div className="mt-4 flex items-center gap-2 bg-zinc-950/80 border border-zinc-800/80 px-3 py-1.5 rounded-full text-xs font-mono shadow-sm">
+              <RefreshCw className={`w-3 h-3 text-indigo-400 ${!isHovered ? 'animate-spin' : ''}`} style={{ animationDuration: '6s' }} />
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => setActivePhoto('front')}
+                  className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                    activePhoto === 'front' ? 'bg-indigo-400 scale-125 shadow-sm shadow-indigo-500/50' : 'bg-zinc-700 hover:bg-zinc-500'
+                  }`}
+                  title="Front Perspective"
+                />
+                <button
+                  onClick={() => setActivePhoto('side')}
+                  className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                    activePhoto === 'side' ? 'bg-indigo-400 scale-125 shadow-sm shadow-indigo-500/50' : 'bg-zinc-700 hover:bg-zinc-500'
+                  }`}
+                  title="Side Perspective"
+                />
+              </div>
+              <span className="text-[10px] text-zinc-500 font-mono pl-1">
+                {activePhoto === 'front' ? 'Front' : 'Side'}
+              </span>
             </div>
           </div>
         </div>

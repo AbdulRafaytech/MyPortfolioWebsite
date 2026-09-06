@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X } from 'lucide-react';
+import { Terminal, Menu, X, Sparkles } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Navbar({ onOpenTerminal }) {
@@ -44,15 +44,18 @@ export default function Navbar({ onOpenTerminal }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#000000]/90 backdrop-blur-md border-b border-white/10 py-3.5'
+          ? 'bg-[#000000]/90 backdrop-blur-md border-b border-zinc-800/80 py-3.5'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Modern Bold Standalone Name (Clean, without Online badge) */}
-        <a href="#hero" className="flex items-center group">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-zinc-300 transition-colors uppercase font-mono">
+        {/* Modern Bold Developer Brand */}
+        <a href="#hero" className="flex items-center gap-2 group">
+          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-indigo-300 transition-colors uppercase font-mono">
             Abdul Rafay
+          </span>
+          <span className="text-[11px] font-mono font-bold px-1.5 py-0.5 rounded bg-indigo-950/80 text-indigo-400 border border-indigo-800/80">
+            .dev
           </span>
         </a>
 
@@ -66,7 +69,7 @@ export default function Navbar({ onOpenTerminal }) {
                 href={link.href}
                 className={`text-sm font-semibold transition-colors duration-150 ${
                   isActive
-                    ? 'text-white border-b-2 border-white pb-0.5'
+                    ? 'text-white border-b-2 border-indigo-500 pb-0.5'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -76,23 +79,23 @@ export default function Navbar({ onOpenTerminal }) {
           })}
         </nav>
 
-        {/* Quick Social & Action Buttons */}
+        {/* Quick Social & Predictable Terminal Console Button */}
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={onOpenTerminal}
-            className="flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-zinc-500 text-zinc-300 hover:text-white transition-all cursor-pointer"
-            title="Interactive CLI"
+            className="flex items-center gap-2 text-xs font-mono font-semibold px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/90 hover:border-indigo-500 text-zinc-200 hover:text-white transition-all cursor-pointer shadow-sm hover:shadow-indigo-500/10 group"
+            title="Open Interactive Terminal Console"
           >
-            <Terminal className="w-3.5 h-3.5" />
-            <span>CLI</span>
-            <kbd className="text-[10px] bg-zinc-800 text-zinc-400 px-1 py-0.2 rounded ml-1">Ctrl+K</kbd>
+            <Terminal className="w-3.5 h-3.5 text-indigo-400 group-hover:scale-110 transition-transform" />
+            <span>Terminal Console</span>
+            <kbd className="text-[10px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded border border-zinc-700 ml-1">Ctrl+K</kbd>
           </button>
 
           <a
             href="https://github.com/AbdulRafaytech"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors"
+            className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors"
             title="GitHub"
           >
             <Github className="w-4 h-4" />
@@ -102,7 +105,7 @@ export default function Navbar({ onOpenTerminal }) {
             href="https://www.linkedin.com/in/abdulrafaytech"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors"
+            className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors"
             title="LinkedIn"
           >
             <Linkedin className="w-4 h-4" />
@@ -138,9 +141,9 @@ export default function Navbar({ onOpenTerminal }) {
                   setMobileMenuOpen(false);
                   onOpenTerminal();
                 }}
-                className="flex items-center gap-2 text-xs font-mono text-zinc-300 py-1.5 px-3 rounded-lg bg-zinc-900 border border-zinc-700"
+                className="flex items-center gap-2 text-xs font-mono text-zinc-200 py-2 px-3 rounded-lg bg-zinc-900 border border-zinc-700"
               >
-                <Terminal className="w-3.5 h-3.5" /> Open CLI
+                <Terminal className="w-3.5 h-3.5 text-indigo-400" /> Open Terminal Console
               </button>
               <div className="flex items-center gap-2">
                 <a
