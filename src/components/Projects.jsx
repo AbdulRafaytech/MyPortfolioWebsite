@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Layers, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Projects() {
@@ -103,31 +103,31 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Projects Grid with Zoom-in and Glowing Border Effects */}
+        {/* Projects Grid with Responsive Sizing */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="rounded-xl overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-indigo-500/80 transition-all duration-300 flex flex-col group shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10"
+              className="rounded-xl overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-indigo-500/80 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10"
             >
-              {/* Zoom-in Thumbnail Screenshot */}
-              <div className="relative aspect-video w-full overflow-hidden bg-black border-b border-zinc-800/80">
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-black/80 border border-zinc-700 text-zinc-200 font-semibold backdrop-blur-md">
-                    {project.badge}
-                  </span>
+              {/* Zoom-in Thumbnail */}
+              <div>
+                <div className="relative aspect-video w-full overflow-hidden bg-black border-b border-zinc-800/80">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-black/80 border border-zinc-700 text-zinc-200 font-semibold backdrop-blur-md">
+                      {project.badge}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Card Body */}
-              <div className="p-5 flex flex-col flex-grow justify-between">
-                <div>
+                {/* Card Body */}
+                <div className="p-5">
                   <h3 className="text-lg font-bold text-white font-['Montserrat',sans-serif] group-hover:text-indigo-300 transition-colors">
                     {project.title}
                   </h3>
@@ -148,18 +148,20 @@ export default function Projects() {
                     {project.description}
                   </p>
                 </div>
+              </div>
 
-                {/* GitHub and Live Demo Action Buttons */}
-                <div className="mt-6 pt-4 border-t border-zinc-900 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
+              {/* Actions Row with Responsive Flexbox for 100% Laptop Zoom */}
+              <div className="p-5 pt-0">
+                <div className="pt-4 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-2.5">
+                  <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-bold text-xs transition-colors shadow-sm"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-bold text-xs transition-colors shadow-sm cursor-pointer whitespace-nowrap"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                         <span>Live Demo</span>
                       </a>
                     )}
@@ -168,14 +170,14 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs font-medium transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-200 text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
                     >
-                      <Github className="w-3.5 h-3.5" />
+                      <Github className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>Source</span>
                     </a>
                   </div>
 
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase">
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase flex-shrink-0">
                     PROJ // 0{projects.indexOf(project) + 1}
                   </span>
                 </div>
