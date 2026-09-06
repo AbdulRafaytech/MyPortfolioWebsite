@@ -111,7 +111,7 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Side Pose Studio Portrait with 3D Interactive Tilt */}
+          {/* Right Column: Deep Studio Dark Portrait with Realistic Seamless Blending */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end">
             <div
               className="relative group cursor-pointer"
@@ -121,26 +121,26 @@ export default function Hero({ onOpenTerminal }) {
                 perspective: '1000px',
               }}
             >
-              {/* Soft Ambient Glowing Aura */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-cyan-400/40 opacity-70 blur-2xl group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+              {/* Soft Atmospheric Studio Backlight Halo */}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-zinc-700/30 via-indigo-500/20 to-zinc-800/30 opacity-60 blur-2xl group-hover:opacity-100 transition duration-700"></div>
 
-              {/* 3D Tilted Outer Rotating Gradient Ring */}
+              {/* 3D Interactive Gradient Ring */}
               <div
-                className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-700 via-indigo-500/70 to-zinc-600 shadow-2xl transition-transform duration-300 ease-out"
+                className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-800 via-zinc-600 to-zinc-900 shadow-2xl transition-transform duration-300 ease-out"
                 style={{
-                  transform: `rotateY(${mousePos.x * 16}deg) rotateX(${-mousePos.y * 16}deg)`,
+                  transform: `rotateY(${mousePos.x * 14}deg) rotateX(${-mousePos.y * 14}deg)`,
                 }}
               >
-                {/* Clean Circular Frame with Side Pose Photo */}
-                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-zinc-950 shadow-2xl relative">
+                {/* Seamless Circular Frame with Deep Studio Dark Photo */}
+                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#0a0a0e] shadow-2xl relative">
                   <img
                     src="/profile-side.jpg"
                     alt="Abdul Rafay"
                     className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
                     loading="eager"
                   />
-                  {/* Subtle Scanline Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Subtle edge blend overlay for ultra-realistic studio finish */}
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"></div>
                 </div>
               </div>
 
