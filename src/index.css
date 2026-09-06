@@ -106,11 +106,47 @@
   background: #52525b;
 }
 
-/* Card Glow Utilities */
+/* Card Glow & Cyan/Blue Accents */
 .card-glow-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-glow-hover:hover {
-  box-shadow: 0 0 30px -5px rgba(99, 102, 241, 0.25);
-  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+}
+
+/* Link Underline Slide Animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Section Reveal Animation Helper */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

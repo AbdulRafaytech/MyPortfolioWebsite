@@ -1,106 +1,136 @@
 import React from 'react';
-import { Calendar, Award, CheckCircle2, GraduationCap, BookOpen, Layers, Sparkles } from 'lucide-react';
+import { Calendar, Award, GraduationCap, BookOpen, CheckCircle2, MapPin } from 'lucide-react';
 
 export default function Education() {
-  const courses = [
-    { title: 'Object-Oriented Programming', detail: 'Java, C++, Design Patterns, Polymorphism' },
-    { title: 'Data Structures & Algorithms', detail: 'Complexity, Graphs, Trees, Dynamic Programming' },
-    { title: 'Database Management Systems', detail: 'Relational SQL, Indexing, Schema Optimization' },
-    { title: 'Web Engineering', detail: 'RESTful APIs, Client-Server Architecture, Full-Stack' },
-    { title: 'Operating Systems & Networks', detail: 'Concurrency, Threading, TCP/IP, Protocols' },
-    { title: 'AI & Computational Theory', detail: 'Foundational AI, Machine Learning, Automation' },
+  const educationItems = [
+    {
+      degree: 'Bachelor of Science in Computer Science (BSCS)',
+      institution: 'National University of Modern Languages (NUML)',
+      location: 'Lahore, Pakistan',
+      period: '2024 – 2028 (In Progress)',
+      status: 'Current Standing: Sophomore',
+      grade: 'CGPA: 3.38 / 4.00',
+      description:
+        'Rigorous 4-year undergraduate curriculum focusing on software engineering principles, algorithm design, distributed computing, database management, and AI systems.',
+      coursework: [
+        'Data Structures & Algorithms',
+        'Object-Oriented Programming (Java)',
+        'Database Management Systems (SQL)',
+        'Web Engineering & REST APIs',
+        'Operating Systems & Concurrency',
+        'Theory of Automata & Computation',
+      ],
+      badgeStyle: 'text-cyan-400 bg-cyan-950/60 border-cyan-800/70',
+      accentGlow: 'hover:border-cyan-500/80 hover:shadow-cyan-500/10',
+    },
+    {
+      degree: 'Intermediate in Computer Science (ICS)',
+      institution: 'Punjab Group of Colleges / Higher Secondary Board',
+      location: 'Lahore, Pakistan',
+      period: '2022 – 2024',
+      status: 'Completed with Distinction',
+      grade: 'Grade A+ (Pre-Engineering & CS)',
+      description:
+        'Foundational academic track emphasizing mathematics, computer science principles, introductory programming in C++, and analytical problem solving.',
+      coursework: [
+        'Computer Science Foundations',
+        'Advanced Mathematics & Calculus',
+        'Physics & Electronics',
+        'Procedural Programming (C++)',
+      ],
+      badgeStyle: 'text-indigo-400 bg-indigo-950/60 border-indigo-800/70',
+      accentGlow: 'hover:border-indigo-500/80 hover:shadow-indigo-500/10',
+    },
   ];
 
   return (
     <section id="education" className="py-20 border-b border-zinc-900/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading - Clean Bold */}
-        <div className="text-left mb-10">
+        {/* Section Heading */}
+        <div className="text-left mb-12">
           <h2 className="section-title font-['Montserrat',sans-serif]">
-            Education &amp; Academics
+            Education &amp; Academic Timeline
           </h2>
           <p className="text-sm font-mono text-zinc-400 mt-1">
-            Formal computer science degree, university credentials, and core engineering curriculum.
+            Formal computer science degree, academic standing, university credentials, and theoretical foundations.
           </p>
         </div>
 
-        {/* Impressive Modern Education Box */}
-        <div className="relative p-6 sm:p-9 rounded-2xl bg-gradient-to-b from-zinc-950/90 to-black border border-zinc-800/80 hover:border-zinc-600 transition-all text-left shadow-2xl overflow-hidden group">
-          {/* Subtle Top Glowing Line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+        {/* Clean Professional Vertical Timeline */}
+        <div className="relative pl-6 sm:pl-10 space-y-10 text-left border-l-2 border-zinc-800/80 ml-2 sm:ml-4">
+          {educationItems.map((item, index) => (
+            <div key={index} className="relative group">
+              {/* Timeline Milestone Node */}
+              <div className="absolute -left-[31px] sm:-left-[47px] top-6 w-4 h-4 rounded-full bg-zinc-950 border-2 border-cyan-400 group-hover:bg-cyan-400 group-hover:scale-125 transition-all duration-300 shadow-md shadow-cyan-400/30"></div>
 
-          {/* Header Row */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-7 border-b border-zinc-900">
-            <div className="flex items-start sm:items-center gap-4">
-              <div className="p-3.5 rounded-2xl bg-indigo-950/70 border border-indigo-800/60 text-indigo-400 shadow-inner flex items-center justify-center flex-shrink-0">
-                <GraduationCap className="w-8 h-8" />
-              </div>
+              {/* Education Card */}
+              <div
+                className={`p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-zinc-950 via-zinc-950 to-zinc-900/50 border border-zinc-800/80 ${item.accentGlow} transition-all duration-300 shadow-xl`}
+              >
+                {/* Header Row */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-zinc-900">
+                  <div className="flex items-start sm:items-center gap-3.5">
+                    <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-cyan-400 shadow-inner flex-shrink-0">
+                      <GraduationCap className="w-6 h-6" />
+                    </div>
 
-              <div>
-                <span className="text-xs font-mono uppercase text-indigo-400 font-semibold tracking-wider block mb-1">
-                  Bachelor of Science (Undergraduate)
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white font-['Montserrat',sans-serif]">
-                  BS Computer Science
-                </h3>
-                <p className="text-base text-zinc-300 mt-1 font-['Inter',sans-serif]">
-                  National University of Modern Languages (NUML), Lahore
-                </p>
-              </div>
-            </div>
-
-            {/* Academic Standing & Timeline Badges */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
-              <div className="px-4 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 flex items-center gap-2 text-xs font-mono text-zinc-300">
-                <Calendar className="w-4 h-4 text-indigo-400" />
-                <span>2024 – 2028 (In Progress)</span>
-              </div>
-
-              <div className="px-4 py-2.5 rounded-xl bg-emerald-950/50 border border-emerald-800/80 flex items-center gap-2 text-xs font-mono text-emerald-300 font-bold shadow-sm">
-                <Award className="w-4 h-4 text-emerald-400" />
-                <span>CGPA: 3.38 / 4.00</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Academic Timeline Progress Bar */}
-          <div className="py-6 border-b border-zinc-900/80">
-            <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
-              <span className="flex items-center gap-1.5 text-zinc-300 font-semibold">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-                Degree Progress
-              </span>
-              <span className="text-indigo-400 font-bold">Freshman → Sophomore (Active)</span>
-            </div>
-            <div className="w-full h-2 rounded-full bg-zinc-900 overflow-hidden p-0.5 border border-zinc-800">
-              <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 w-[35%] transition-all duration-1000"></div>
-            </div>
-          </div>
-
-          {/* Coursework & Engineering Focus Grid */}
-          <div className="pt-6">
-            <h4 className="text-xs font-mono uppercase text-zinc-400 tracking-wider mb-4 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-indigo-400" />
-              Core Academic Coursework &amp; Theoretical Foundations:
-            </h4>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-              {courses.map((course, idx) => (
-                <div
-                  key={idx}
-                  className="p-3.5 rounded-xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors"
-                >
-                  <div className="flex items-center gap-2 text-sm font-bold text-white font-['Montserrat',sans-serif]">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>{course.title}</span>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white font-['Montserrat',sans-serif]">
+                          {item.degree}
+                        </h3>
+                      </div>
+                      <p className="text-sm font-medium text-zinc-300 font-['Inter',sans-serif] mt-0.5">
+                        {item.institution}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-zinc-400 font-['Inter',sans-serif] mt-1 pl-6">
-                    {course.detail}
-                  </p>
+
+                  {/* Highlights & Badges */}
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-300">
+                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                      {item.period}
+                    </span>
+
+                    <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-400">
+                      <MapPin className="w-3.5 h-3.5" />
+                      {item.location}
+                    </span>
+
+                    <span className={`px-3 py-1.5 rounded-lg border text-xs font-mono font-bold shadow-sm ${item.badgeStyle}`}>
+                      <Award className="w-3.5 h-3.5 inline mr-1" />
+                      {item.grade}
+                    </span>
+                  </div>
                 </div>
-              ))}
+
+                {/* Narrative */}
+                <p className="text-sm text-zinc-300 font-['Inter',sans-serif] leading-relaxed mt-4">
+                  {item.description}
+                </p>
+
+                {/* Coursework & Modules Grid */}
+                <div className="mt-5 pt-4 border-t border-zinc-900">
+                  <h4 className="text-xs font-mono uppercase text-zinc-400 tracking-wider mb-3 flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+                    Core Coursework &amp; Key Subjects:
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                    {item.coursework.map((course, cIdx) => (
+                      <div
+                        key={cIdx}
+                        className="flex items-center gap-2 p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800/70 text-xs text-zinc-300 font-['Inter',sans-serif]"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                        <span>{course}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
