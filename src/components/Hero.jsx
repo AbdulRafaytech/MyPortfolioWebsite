@@ -1,10 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock, Code2 } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Code2, Sparkles } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
   const [time, setTime] = useState('');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // Typewriter Animation
+  const typePhrases = [
+    "CS Student · Aspiring Full-Stack Developer",
+    "Backend & AI Assisted Workflows",
+    "Java OOP · Node.js · Python · React",
+    "Scalable APIs & Modern Database Systems",
+  ];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = typePhrases[phraseIndex];
+    const typingSpeed = isDeleting ? 40 : 80;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setTypedText(currentPhrase.substring(0, typedText.length + 1));
+        if (typedText === currentPhrase) {
+          setTimeout(() => setIsDeleting(true), 2200);
+        }
+      } else {
+        setTypedText(currentPhrase.substring(0, typedText.length - 1));
+        if (typedText === '') {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % typePhrases.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [typedText, isDeleting, phraseIndex]);
 
   // Live Clock
   useEffect(() => {
@@ -40,21 +73,25 @@ export default function Hero({ onOpenTerminal }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Left Column: Bold Text & Information */}
-          <div className="w-full lg:w-3/5 text-left flex flex-col items-start">
+          <div className="w-full lg:w-3/5 text-left flex flex-col items-start animate-fade-up">
             {/* Status Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono font-medium text-zinc-300 mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span className="uppercase tracking-wider">Available for Internships &amp; Projects</span>
             </div>
 
-            {/* Main Headline - Sharp Geometric Font */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-white tracking-tight leading-[1.08] font-['Montserrat',sans-serif]">
-              CS Student · Aspiring Full-Stack Developer
-            </h1>
+            {/* Main Headline with Typewriter Animation */}
+            <div className="min-h-[110px] sm:min-h-[130px] flex items-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.12] font-['Montserrat',sans-serif]">
+                {typedText}
+                <span className="typewriter-cursor"></span>
+              </h1>
+            </div>
 
             {/* Subtitle - Exact: Backend & AI Assisted Workflows */}
-            <h2 className="mt-4 text-xl sm:text-2xl font-bold text-indigo-300 font-mono tracking-tight">
-              Backend &amp; AI Assisted Workflows
+            <h2 className="mt-3 text-xl sm:text-2xl font-bold text-indigo-300 font-mono tracking-tight flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-indigo-400" />
+              <span>Abdul Rafay | Computer Science Undergraduate</span>
             </h2>
 
             {/* Description */}
@@ -111,8 +148,8 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Deep Studio Dark Portrait with Realistic Seamless Blending */}
-          <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end">
+          {/* Right Column: Deep Studio Dark Portrait with 3D Interactive Tilt */}
+          <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end animate-fade-up">
             <div
               className="relative group cursor-pointer"
               onMouseMove={handleMouseMove}

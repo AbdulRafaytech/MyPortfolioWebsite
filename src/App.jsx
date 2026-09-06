@@ -18,11 +18,33 @@ export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
+  // Theme State with localStorage Persistence
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('abdul_rafay_theme') || 'dark';
+  });
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+    localStorage.setItem('abdul_rafay_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    showToast(`Switched to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`);
+  };
+
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(''), 3000);
   };
 
+  // Keyboard shortcut Ctrl+K to toggle terminal
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
@@ -36,13 +58,17 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Interactive Background Canvas */}
+      {/* Interactive Background Particles & Atmospheric Glow */}
       <BackgroundFX />
 
       {/* Navigation */}
-      <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
+      <Navbar
+        onOpenTerminal={() => setTerminalOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
-      {/* Main Content & Sections */}
+      {/* Main Content & Scroll Sections */}
       <main className="relative z-10">
         <Hero onOpenTerminal={() => setTerminalOpen(true)} />
         <About />
@@ -52,7 +78,6 @@ export default function App() {
         <Skills />
         <Education />
         <Contact onShowToast={showToast} />
-        {/* Footer placed inside relative z-10 for guaranteed high visibility */}
         <Footer />
       </main>
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X } from 'lucide-react';
+import { Terminal, Menu, X, Sun, Moon } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
-export default function Navbar({ onOpenTerminal }) {
+export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -49,7 +49,7 @@ export default function Navbar({ onOpenTerminal }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Bold Standalone Name (Clean, without .dev) */}
+        {/* Bold Standalone Name */}
         <a href="#hero" className="flex items-center group">
           <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-zinc-300 transition-colors uppercase font-mono">
             Abdul Rafay
@@ -76,12 +76,23 @@ export default function Navbar({ onOpenTerminal }) {
           })}
         </nav>
 
-        {/* Quick Social & Clear Terminal Console Button */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Quick Social, Theme Toggle & Terminal Console Button */}
+        <div className="hidden sm:flex items-center gap-2.5">
+          {/* Theme Toggle Button */}
+          <button
+            onClick={onToggleTheme}
+            className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+            title={theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+          </button>
+
+          {/* Terminal Console Button */}
           <button
             onClick={onOpenTerminal}
             className="flex items-center gap-2 text-xs font-mono font-semibold px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/90 hover:border-indigo-500 text-zinc-200 hover:text-white transition-all cursor-pointer shadow-sm hover:shadow-indigo-500/10 group"
-            title="Open Interactive Terminal Console"
+            title="Open Interactive Terminal Console (Ctrl+K)"
           >
             <Terminal className="w-3.5 h-3.5 text-indigo-400 group-hover:scale-110 transition-transform" />
             <span>Terminal Console</span>
@@ -110,12 +121,22 @@ export default function Navbar({ onOpenTerminal }) {
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            onClick={onToggleTheme}
+            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300"
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -140,7 +161,7 @@ export default function Navbar({ onOpenTerminal }) {
                 }}
                 className="flex items-center gap-2 text-xs font-mono text-zinc-200 py-2 px-3 rounded-lg bg-zinc-900 border border-zinc-700"
               >
-                <Terminal className="w-3.5 h-3.5 text-indigo-400" /> Open Terminal Console
+                <Terminal className="w-3.5 h-3.5 text-indigo-400" /> Terminal Console
               </button>
               <div className="flex items-center gap-2">
                 <a

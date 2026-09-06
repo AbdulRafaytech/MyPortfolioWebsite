@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Sparkles, Terminal, Code, Cpu, Rocket, Hexagon, Layers, Briefcase } from 'lucide-react';
+import { Calendar, MapPin, Terminal, Code, Cpu, Rocket, Hexagon } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
@@ -88,74 +88,78 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20 border-b border-zinc-900/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading - Clean Bold */}
+        {/* Section Heading */}
         <div className="text-left mb-12">
           <h2 className="section-title font-['Montserrat',sans-serif]">
-            Work Experience
+            Work Experience &amp; Timeline
           </h2>
           <p className="text-sm font-mono text-zinc-400 mt-1">
-            Hands-on technical internships and practical software engineering roles.
+            Hands-on technical internships, engineering responsibilities, and system contributions.
           </p>
         </div>
 
-        {/* Powerful Aligned Experience Cards with Modern Badges */}
-        <div className="space-y-6">
+        {/* Vertical Timeline Structure */}
+        <div className="relative pl-6 sm:pl-10 space-y-8 text-left border-l-2 border-zinc-800/80 ml-2 sm:ml-4">
           {experiences.map((exp, index) => {
             const IconComponent = exp.icon;
             return (
-              <div
-                key={index}
-                className={`relative p-6 sm:p-7 rounded-xl ${exp.bgGradient} border ${exp.borderColor} ${exp.glowColor} transition-all duration-300 group shadow-lg hover:shadow-2xl text-left overflow-hidden`}
-              >
-                {/* Illuminated Accent Top Bar on Hover */}
-                <div className={`absolute top-0 left-0 right-0 h-[2px] ${exp.topLine} opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md`}></div>
+              <div key={index} className="relative group">
+                {/* Timeline Milestone Node */}
+                <div className="absolute -left-[31px] sm:-left-[47px] top-6 w-4 h-4 rounded-full bg-zinc-950 border-2 border-indigo-500 group-hover:bg-indigo-500 group-hover:scale-125 transition-all shadow-md shadow-indigo-500/40"></div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-900/80">
-                  <div className="flex items-center gap-3.5">
-                    {/* Company Monogram / Emblem Badge */}
-                    <div className={`p-2.5 rounded-xl border ${exp.iconBg} shadow-inner flex items-center justify-center`}>
-                      <IconComponent className="w-5 h-5" />
-                    </div>
+                {/* Experience Card */}
+                <div
+                  className={`p-6 sm:p-7 rounded-xl ${exp.bgGradient} border ${exp.borderColor} ${exp.glowColor} transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
+                >
+                  {/* Top Line Hover Glow */}
+                  <div className={`absolute top-0 left-0 right-0 h-[2px] ${exp.topLine} opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md`}></div>
 
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2.5">
-                        <h3 className="text-lg sm:text-xl font-bold text-white font-['Montserrat',sans-serif] group-hover:text-zinc-100 transition-colors">
-                          {exp.role}
-                        </h3>
-                        <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${exp.tagStyle} font-semibold`}>
-                          {exp.tag}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-900/80">
+                    <div className="flex items-center gap-3.5">
+                      <div className={`p-2.5 rounded-xl border ${exp.iconBg} shadow-inner flex items-center justify-center`}>
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2.5">
+                          <h3 className="text-lg sm:text-xl font-bold text-white font-['Montserrat',sans-serif] group-hover:text-zinc-100 transition-colors">
+                            {exp.role}
+                          </h3>
+                          <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${exp.tagStyle} font-semibold`}>
+                            {exp.tag}
+                          </span>
+                        </div>
+                        <span className="text-sm font-semibold text-zinc-300 font-['Inter',sans-serif] block mt-0.5">
+                          @ {exp.company}
                         </span>
                       </div>
-                      <span className="text-sm font-semibold text-zinc-300 font-['Inter',sans-serif] block mt-0.5">
-                        @ {exp.company}
+                    </div>
+
+                    <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
+                      <span className="flex items-center gap-1.5 text-zinc-300 font-medium">
+                        <Calendar className="w-3.5 h-3.5 text-zinc-400" /> {exp.period}
+                      </span>
+                      <span className="flex items-center gap-1 text-zinc-500">
+                        <MapPin className="w-3.5 h-3.5" /> {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
-                    <span className="flex items-center gap-1.5 text-zinc-300 font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-zinc-400" /> {exp.period}
-                    </span>
-                    <span className="flex items-center gap-1 text-zinc-500">
-                      <MapPin className="w-3.5 h-3.5" /> {exp.location}
-                    </span>
+                  <p className="text-sm text-zinc-300 leading-relaxed mt-4 font-['Inter',sans-serif]">
+                    {exp.description}
+                  </p>
+
+                  {/* Skills Row */}
+                  <div className="mt-5 flex flex-wrap gap-2 pt-2">
+                    {exp.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900/90 text-zinc-300 border border-zinc-800 group-hover:border-zinc-700 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                </div>
-
-                <p className="text-sm text-zinc-300 leading-relaxed mt-4 font-['Inter',sans-serif]">
-                  {exp.description}
-                </p>
-
-                {/* Skills Row */}
-                <div className="mt-5 flex flex-wrap gap-2 pt-2">
-                  {exp.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900/90 text-zinc-300 border border-zinc-800 group-hover:border-zinc-700 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
                 </div>
               </div>
             );
