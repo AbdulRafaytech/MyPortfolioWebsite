@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, Sparkles } from 'lucide-react';
+import { Terminal, Menu, X } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Navbar({ onOpenTerminal }) {
@@ -49,13 +49,10 @@ export default function Navbar({ onOpenTerminal }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Modern Bold Developer Brand */}
-        <a href="#hero" className="flex items-center gap-2 group">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-indigo-300 transition-colors uppercase font-mono">
+        {/* Bold Standalone Name (Clean, without .dev) */}
+        <a href="#hero" className="flex items-center group">
+          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-zinc-300 transition-colors uppercase font-mono">
             Abdul Rafay
-          </span>
-          <span className="text-[11px] font-mono font-bold px-1.5 py-0.5 rounded bg-indigo-950/80 text-indigo-400 border border-indigo-800/80">
-            .dev
           </span>
         </a>
 
@@ -79,7 +76,7 @@ export default function Navbar({ onOpenTerminal }) {
           })}
         </nav>
 
-        {/* Quick Social & Predictable Terminal Console Button */}
+        {/* Quick Social & Clear Terminal Console Button */}
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={onOpenTerminal}
