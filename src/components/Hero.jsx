@@ -5,6 +5,7 @@ import { Github } from './Icons';
 export default function Hero({ onOpenTerminal }) {
   const [time, setTime] = useState('');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
 
   // Typewriter Animation
   const typePhrases = [
@@ -57,6 +58,15 @@ export default function Hero({ onOpenTerminal }) {
     return () => clearInterval(timer);
   }, []);
 
+  // Scroll-Driven Parallax Listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -67,6 +77,10 @@ export default function Hero({ onOpenTerminal }) {
   const handleMouseLeave = () => {
     setMousePos({ x: 0, y: 0 });
   };
+
+  // Scroll-driven scale factor (subtle zoom out as user scrolls down)
+  const scrollScale = Math.max(0.92, 1 - scrollY * 0.0003);
+  const scrollRotate = Math.min(10, scrollY * 0.015);
 
   return (
     <section id="hero" className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-zinc-900/80">
@@ -88,9 +102,9 @@ export default function Hero({ onOpenTerminal }) {
               </h1>
             </div>
 
-            {/* Subtitle - Exact: Backend & AI Assisted Workflows */}
-            <h2 className="mt-3 text-xl sm:text-2xl font-bold text-indigo-300 font-mono tracking-tight flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-indigo-400" />
+            {/* Subtitle */}
+            <h2 className="mt-3 text-xl sm:text-2xl font-bold text-cyan-300 font-mono tracking-tight flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-cyan-400" />
               <span>Abdul Rafay | Computer Science Undergraduate</span>
             </h2>
 
@@ -105,7 +119,7 @@ export default function Hero({ onOpenTerminal }) {
                 href="https://github.com/AbdulRafaytech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-white/10 cursor-pointer font-['Inter',sans-serif]"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-cyan-500/10 cursor-pointer font-['Inter',sans-serif]"
               >
                 <Github className="w-4 h-4" />
                 <span>View GitHub</span>
@@ -116,7 +130,7 @@ export default function Hero({ onOpenTerminal }) {
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold text-sm transition-all cursor-pointer font-['Inter',sans-serif]"
               >
                 <span>Connect</span>
-                <ArrowRight className="w-4 h-4 text-zinc-400" />
+                <ArrowRight className="w-4 h-4 text-cyan-400" />
               </a>
 
               <a
@@ -143,47 +157,50 @@ export default function Hero({ onOpenTerminal }) {
               </div>
               <div className="p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800/80 shadow-md">
                 <span className="text-[11px] font-mono uppercase text-zinc-400 block tracking-wider font-semibold">PRIMARY FOCUS</span>
-                <span className="text-xs font-bold text-indigo-300 font-mono mt-1 block truncate">Backend &amp; AI</span>
+                <span className="text-xs font-bold text-cyan-300 font-mono mt-1 block truncate">Backend &amp; AI</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Deep Studio Dark Portrait with 3D Interactive Tilt */}
+          {/* Right Column: Circular Studio Portrait with Animated Rotating Cyan Ring & Scroll Tilt */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end animate-fade-up">
             <div
               className="relative group cursor-pointer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{
-                perspective: '1000px',
+                perspective: '1200px',
               }}
             >
-              {/* Soft Atmospheric Studio Backlight Halo */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-zinc-700/30 via-indigo-500/20 to-zinc-800/30 opacity-60 blur-2xl group-hover:opacity-100 transition duration-700"></div>
+              {/* Soft Atmospheric Cyan/Indigo Pulse Halo */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-cyan-500/20 via-sky-500/25 to-indigo-500/20 blur-2xl animate-pulse-glow pointer-events-none"></div>
 
-              {/* 3D Interactive Gradient Ring */}
+              {/* Animated Rotating Outer Ring (Cyan & Indigo Gradients) */}
+              <div className="absolute -inset-[6px] rounded-full bg-gradient-to-tr from-cyan-500 via-sky-400 to-indigo-600 opacity-75 animate-spin-slow blur-[1px] pointer-events-none"></div>
+
+              {/* 3D Interactive Gradient Ring with Mouse Parallax & Scroll Physics */}
               <div
-                className="relative p-[3px] rounded-full bg-gradient-to-tr from-zinc-800 via-zinc-600 to-zinc-900 shadow-2xl transition-transform duration-300 ease-out"
+                className="relative p-[4px] rounded-full bg-gradient-to-tr from-zinc-900 via-zinc-800 to-black shadow-2xl transition-transform duration-300 ease-out"
                 style={{
-                  transform: `rotateY(${mousePos.x * 14}deg) rotateX(${-mousePos.y * 14}deg)`,
+                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 16}deg) rotateX(${-mousePos.y * 16 - scrollRotate * 0.2}deg)`,
                 }}
               >
                 {/* Seamless Circular Frame with Deep Studio Dark Photo */}
-                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#0a0a0e] shadow-2xl relative">
+                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] shadow-2xl relative border-2 border-zinc-800/80">
                   <img
                     src="/profile-side.jpg"
                     alt="Abdul Rafay"
                     className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
                     loading="eager"
                   />
-                  {/* Subtle edge blend overlay for ultra-realistic studio finish */}
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"></div>
+                  {/* Subtle edge blend overlay for studio realism */}
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_25px_rgba(0,0,0,0.6)] pointer-events-none"></div>
                 </div>
               </div>
 
               {/* Floating Tech Micro-Badges */}
               <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none">
-                <Code2 className="w-3.5 h-3.5 text-indigo-400" />
+                <Code2 className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Backend // AI</span>
               </div>
 

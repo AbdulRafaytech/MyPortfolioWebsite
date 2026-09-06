@@ -150,3 +150,39 @@
   transform: translateY(20px);
   animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Animated Rotating Cyan/Blue Ring Keyframe */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03);
+    box-shadow: 0 0 45px rgba(56, 189, 248, 0.7);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 15s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* 3D Scroll Parallax & Perspective */
+.perspective-container {
+  perspective: 1200px;
+}
