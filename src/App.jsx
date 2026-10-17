@@ -18,27 +18,6 @@ export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
-  // Theme State with localStorage Persistence
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('abdul_rafay_theme') || 'dark';
-  });
-
-  useEffect(() => {
-    if (theme === 'light') {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    }
-    localStorage.setItem('abdul_rafay_theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-    showToast(`Switched to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`);
-  };
-
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(''), 3000);
@@ -57,15 +36,13 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="relative min-h-screen bg-[#000000] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Interactive Background Particles & Atmospheric Glow */}
       <BackgroundFX />
 
       {/* Navigation */}
       <Navbar
         onOpenTerminal={() => setTerminalOpen(true)}
-        theme={theme}
-        onToggleTheme={toggleTheme}
       />
 
       {/* Main Content & Scroll Sections */}

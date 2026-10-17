@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Terminal, Code, Cpu, Rocket, Hexagon } from 'lucide-react';
+import { Calendar, MapPin, Cpu, Rocket, Sparkles, Check, ArrowUpRight } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
@@ -8,80 +8,44 @@ export default function Experience() {
       role: 'Backend AI Engineering Intern',
       period: 'Aug 2026 – Sep 2026',
       location: 'Remote',
-      tag: 'Backend & AI',
+      tag: 'Backend & AI Systems',
       icon: Cpu,
-      iconBg: 'bg-cyan-950/80 text-cyan-400 border-cyan-800/80',
+      iconBg: 'bg-cyan-950/70 text-cyan-400 border-cyan-800/70',
       glowColor: 'hover:border-cyan-500/80 hover:shadow-cyan-500/10',
-      borderColor: 'border-cyan-900/30',
-      bgGradient: 'bg-gradient-to-r from-cyan-950/15 via-zinc-950 to-zinc-950',
-      tagStyle: 'text-cyan-300 bg-cyan-950/60 border-cyan-800/60',
-      topLine: 'bg-cyan-400',
-      description: 'Working around backend and AI engineering workflows, integrating Python automation, and supporting practical backend-oriented system development.',
-      skills: ['Backend/AI Engineering', 'AI Workflows', 'Python', 'System Development'],
-    },
-    {
-      company: 'CodeAlpha',
-      role: 'Back End Developer Intern',
-      period: 'Aug 2026 – Sep 2026',
-      location: 'Remote',
-      tag: 'Server-Side & APIs',
-      icon: Terminal,
-      iconBg: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/80',
-      glowColor: 'hover:border-indigo-500/80 hover:shadow-indigo-500/10',
-      borderColor: 'border-indigo-900/30',
-      bgGradient: 'bg-gradient-to-r from-indigo-950/15 via-zinc-950 to-zinc-950',
-      tagStyle: 'text-indigo-300 bg-indigo-950/60 border-indigo-800/60',
-      topLine: 'bg-indigo-400',
-      description: 'Selected for a hands-on Backend Development Internship focused on server-side development, RESTful APIs, backend frameworks, databases, and practical project development using technologies such as Node.js, Express.js, Flask, and Django.',
-      skills: ['Node.js', 'Express.js', 'REST APIs', 'Flask', 'Django', 'Databases'],
-    },
-    {
-      company: 'CodeAlpha',
-      role: 'Frontend Developer Intern',
-      period: 'Aug 2026 – Sep 2026',
-      location: 'Remote',
-      tag: 'UI & Interactivity',
-      icon: Code,
-      iconBg: 'bg-sky-950/80 text-sky-400 border-sky-800/80',
-      glowColor: 'hover:border-sky-500/80 hover:shadow-sky-500/10',
-      borderColor: 'border-sky-900/30',
-      bgGradient: 'bg-gradient-to-r from-sky-950/15 via-zinc-950 to-zinc-950',
-      tagStyle: 'text-sky-300 bg-sky-950/60 border-sky-800/60',
-      topLine: 'bg-sky-400',
-      description: 'Working on frontend development tasks involving HTML, CSS, JavaScript, responsive user interfaces, Git/GitHub, and practical project implementation.',
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'Responsive UI', 'Git/GitHub'],
+      borderColor: 'border-cyan-900/40',
+      bgGradient: 'bg-gradient-to-b from-zinc-950 via-zinc-950/95 to-[#050b14]',
+      tagStyle: 'text-cyan-300 bg-cyan-950/80 border-cyan-800/80',
+      topLine: 'bg-gradient-to-r from-cyan-500 via-sky-400 to-transparent',
+      description:
+        'Engineered backend systems and automated AI development workflows. Integrated Python automation scripts, implemented server-side logic, and supported real-time system performance and API optimization.',
+      highlights: [
+        'Automated backend pipelines with Python scripts to accelerate development turnaround.',
+        'Engineered robust server-side workflows handling complex data processing tasks.',
+        'Collaborated on system architecture, code reviews, and structured API endpoints.',
+      ],
+      skills: ['Python Automation', 'AI Workflows', 'Backend Systems', 'API Integration', 'Data Processing'],
     },
     {
       company: 'InternGrow',
       role: 'Frontend Developer Intern',
       period: 'Aug 2026 – Oct 2026',
       location: 'Remote',
-      tag: 'SaaS UI & State',
+      tag: 'SaaS Client Architecture',
       icon: Rocket,
-      iconBg: 'bg-emerald-950/80 text-emerald-400 border-emerald-800/80',
+      iconBg: 'bg-emerald-950/70 text-emerald-400 border-emerald-800/70',
       glowColor: 'hover:border-emerald-500/80 hover:shadow-emerald-500/10',
-      borderColor: 'border-emerald-900/30',
-      bgGradient: 'bg-gradient-to-r from-emerald-950/15 via-zinc-950 to-zinc-950',
-      tagStyle: 'text-emerald-300 bg-emerald-950/60 border-emerald-800/60',
-      topLine: 'bg-emerald-400',
-      description: 'Practical frontend development involving HTML, CSS, JavaScript, responsive UI development, DOM manipulation, and Git/GitHub.',
-      skills: ['React', 'JavaScript', 'DOM Manipulation', 'UI Components', 'Git'],
-    },
-    {
-      company: 'HexSoftwares',
-      role: 'Web Development Intern',
-      period: 'Aug 2026 – Sep 2026',
-      location: 'Remote',
-      tag: 'Web Development',
-      icon: Hexagon,
-      iconBg: 'bg-purple-950/80 text-purple-400 border-purple-800/80',
-      glowColor: 'hover:border-purple-500/80 hover:shadow-purple-500/10',
-      borderColor: 'border-purple-900/30',
-      bgGradient: 'bg-gradient-to-r from-purple-950/15 via-zinc-950 to-zinc-950',
-      tagStyle: 'text-purple-300 bg-purple-950/60 border-purple-800/60',
-      topLine: 'bg-purple-400',
-      description: 'Professional internship focusing on practical web development, responsive interfaces, HTML/CSS/JavaScript, project-based development, and practical feature implementation.',
-      skills: ['Web Development', 'Responsive Design', 'JavaScript', 'HTML/CSS'],
+      borderColor: 'border-emerald-900/40',
+      bgGradient: 'bg-gradient-to-b from-zinc-950 via-zinc-950/95 to-[#040e09]',
+      tagStyle: 'text-emerald-300 bg-emerald-950/80 border-emerald-800/80',
+      topLine: 'bg-gradient-to-r from-emerald-500 via-teal-400 to-transparent',
+      description:
+        'Developed production-grade user interfaces for SaaS web applications using React. Implemented complete authentication systems, state management, responsive UI components, and real-time dashboard analytics.',
+      highlights: [
+        'Architected RTech SaaS Authentication system with OTP verification and protected routing.',
+        'Built dynamic RTech HR management dashboard with interactive analytics and metrics.',
+        'Ensured seamless cross-browser responsiveness and deployed live builds on Vercel.',
+      ],
+      skills: ['React 19', 'JavaScript (ES6+)', 'SaaS UI Architecture', 'State Management', 'Vercel Deployment'],
     },
   ];
 
@@ -90,44 +54,43 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="text-left mb-12">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-xs font-mono uppercase text-cyan-400 tracking-widest font-semibold flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" /> Industry Experience
+            </span>
+          </div>
           <h2 className="section-title font-['Montserrat',sans-serif]">
-            Work Experience &amp; Timeline
+            Work Experience &amp; Internships
           </h2>
           <p className="text-sm font-mono text-zinc-400 mt-1">
-            Hands-on technical internships, engineering responsibilities, and system contributions.
+            Hands-on software engineering internships, production contributions, and system deliveries.
           </p>
         </div>
 
-        {/* Vertical Timeline Structure */}
-        <div className="relative pl-6 sm:pl-10 space-y-8 text-left border-l-2 border-zinc-800/80 ml-2 sm:ml-4">
+        {/* Executive 2-Card Grid Layout (No generic dotted bullets) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
           {experiences.map((exp, index) => {
             const IconComponent = exp.icon;
             return (
-              <div key={index} className="relative group">
-                {/* Timeline Milestone Node */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-6 w-4 h-4 rounded-full bg-zinc-950 border-2 border-indigo-500 group-hover:bg-indigo-500 group-hover:scale-125 transition-all shadow-md shadow-indigo-500/40"></div>
+              <div
+                key={index}
+                className={`relative rounded-2xl ${exp.bgGradient} border ${exp.borderColor} ${exp.glowColor} transition-all duration-300 shadow-xl overflow-hidden flex flex-col justify-between group p-6 sm:p-8`}
+              >
+                {/* Top Glowing Accent Line */}
+                <div className={`absolute top-0 left-0 right-0 h-[2px] ${exp.topLine} opacity-80 group-hover:opacity-100 transition-opacity`}></div>
 
-                {/* Experience Card */}
-                <div
-                  className={`p-6 sm:p-7 rounded-xl ${exp.bgGradient} border ${exp.borderColor} ${exp.glowColor} transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
-                >
-                  {/* Top Line Hover Glow */}
-                  <div className={`absolute top-0 left-0 right-0 h-[2px] ${exp.topLine} opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md`}></div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-900/80">
+                <div>
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between gap-4 pb-5 border-b border-zinc-900/90">
                     <div className="flex items-center gap-3.5">
-                      <div className={`p-2.5 rounded-xl border ${exp.iconBg} shadow-inner flex items-center justify-center`}>
-                        <IconComponent className="w-5 h-5" />
+                      <div className={`p-3 rounded-xl border ${exp.iconBg} shadow-inner flex items-center justify-center flex-shrink-0`}>
+                        <IconComponent className="w-6 h-6" />
                       </div>
-
                       <div>
-                        <div className="flex flex-wrap items-center gap-2.5">
-                          <h3 className="text-lg sm:text-xl font-bold text-white font-['Montserrat',sans-serif] group-hover:text-zinc-100 transition-colors">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="text-lg sm:text-xl font-bold text-white font-['Montserrat',sans-serif]">
                             {exp.role}
                           </h3>
-                          <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${exp.tagStyle} font-semibold`}>
-                            {exp.tag}
-                          </span>
                         </div>
                         <span className="text-sm font-semibold text-zinc-300 font-['Inter',sans-serif] block mt-0.5">
                           @ {exp.company}
@@ -135,31 +98,54 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
-                      <span className="flex items-center gap-1.5 text-zinc-300 font-medium">
-                        <Calendar className="w-3.5 h-3.5 text-zinc-400" /> {exp.period}
-                      </span>
-                      <span className="flex items-center gap-1 text-zinc-500">
-                        <MapPin className="w-3.5 h-3.5" /> {exp.location}
-                      </span>
-                    </div>
+                    <span className={`text-[10px] sm:text-[11px] font-mono px-2.5 py-1 rounded-full border ${exp.tagStyle} font-semibold whitespace-nowrap self-start`}>
+                      {exp.tag}
+                    </span>
                   </div>
 
+                  {/* Period & Location Telemetry Bar */}
+                  <div className="py-3 flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400 border-b border-zinc-900/60">
+                    <span className="flex items-center gap-1.5 text-zinc-300 font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-cyan-400" /> {exp.period}
+                    </span>
+                    <span className="flex items-center gap-1 text-zinc-500">
+                      <MapPin className="w-3.5 h-3.5" /> {exp.location}
+                    </span>
+                  </div>
+
+                  {/* Narrative Summary */}
                   <p className="text-sm text-zinc-300 leading-relaxed mt-4 font-['Inter',sans-serif]">
                     {exp.description}
                   </p>
 
-                  {/* Skills Row */}
-                  <div className="mt-5 flex flex-wrap gap-2 pt-2">
-                    {exp.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900/90 text-zinc-300 border border-zinc-800 group-hover:border-zinc-700 transition-colors"
+                  {/* Modern Deliverable Highlight Cards (Replacing generic dotted bullets) */}
+                  <div className="mt-5 space-y-2.5">
+                    {exp.highlights.map((item, hIdx) => (
+                      <div
+                        key={hIdx}
+                        className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/80 group-hover:border-zinc-700/80 transition-colors flex items-start gap-2.5"
                       >
-                        {skill}
-                      </span>
+                        <div className="p-1 rounded-md bg-zinc-800 text-cyan-400 flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3" />
+                        </div>
+                        <p className="text-xs text-zinc-300 font-['Inter',sans-serif] leading-relaxed">
+                          {item}
+                        </p>
+                      </div>
                     ))}
                   </div>
+                </div>
+
+                {/* Tech Skills Chips */}
+                <div className="mt-6 pt-4 border-t border-zinc-900/80 flex flex-wrap gap-2">
+                  {exp.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-900 text-zinc-300 border border-zinc-800/90 hover:border-zinc-700 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             );

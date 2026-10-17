@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, Sun, Moon } from 'lucide-react';
+import { Terminal, Menu, X } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
-export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
+export default function Navbar({ onOpenTerminal }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -51,7 +51,7 @@ export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Bold Standalone Name */}
         <a href="#hero" className="flex items-center group">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-zinc-300 transition-colors uppercase font-mono">
+          <span className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-cyan-400 transition-colors uppercase font-mono">
             Abdul Rafay
           </span>
         </a>
@@ -66,7 +66,7 @@ export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
                 href={link.href}
                 className={`text-sm font-semibold transition-colors duration-150 ${
                   isActive
-                    ? 'text-white border-b-2 border-indigo-500 pb-0.5'
+                    ? 'text-white border-b-2 border-cyan-400 pb-0.5'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -76,25 +76,15 @@ export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
           })}
         </nav>
 
-        {/* Quick Social, Theme Toggle & Terminal Console Button */}
+        {/* Quick Social & Terminal Console Button */}
         <div className="hidden sm:flex items-center gap-2.5">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={onToggleTheme}
-            className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white transition-colors cursor-pointer"
-            title={theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
-          </button>
-
           {/* Terminal Console Button */}
           <button
             onClick={onOpenTerminal}
-            className="flex items-center gap-2 text-xs font-mono font-semibold px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/90 hover:border-indigo-500 text-zinc-200 hover:text-white transition-all cursor-pointer shadow-sm hover:shadow-indigo-500/10 group"
+            className="flex items-center gap-2 text-xs font-mono font-semibold px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700/90 hover:border-cyan-500 text-zinc-200 hover:text-white transition-all cursor-pointer shadow-sm hover:shadow-cyan-500/10 group"
             title="Open Interactive Terminal Console (Ctrl+K)"
           >
-            <Terminal className="w-3.5 h-3.5 text-indigo-400 group-hover:scale-110 transition-transform" />
+            <Terminal className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
             <span>Terminal Console</span>
             <kbd className="text-[10px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded border border-zinc-700 ml-1">Ctrl+K</kbd>
           </button>
@@ -122,14 +112,6 @@ export default function Navbar({ onOpenTerminal, theme, onToggleTheme }) {
 
         {/* Mobile Toggle */}
         <div className="flex items-center gap-2 lg:hidden">
-          <button
-            onClick={onToggleTheme}
-            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
-          </button>
-
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"

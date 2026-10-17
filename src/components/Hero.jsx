@@ -162,7 +162,7 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Circular Studio Portrait with Animated Rotating Cyan Ring & Scroll Tilt */}
+          {/* Right Column: Circular Studio Portrait with Sleek Thin Border & Parallax */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end animate-fade-up">
             <div
               className="relative group cursor-pointer"
@@ -172,21 +172,18 @@ export default function Hero({ onOpenTerminal }) {
                 perspective: '1200px',
               }}
             >
-              {/* Soft Atmospheric Cyan/Indigo Pulse Halo */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-cyan-500/20 via-sky-500/25 to-indigo-500/20 blur-2xl animate-pulse-glow pointer-events-none"></div>
+              {/* Soft Subtle Cyan Ambient Halo */}
+              <div className="absolute -inset-3 rounded-full bg-cyan-500/10 blur-xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500"></div>
 
-              {/* Animated Rotating Outer Ring (Cyan & Indigo Gradients) */}
-              <div className="absolute -inset-[6px] rounded-full bg-gradient-to-tr from-cyan-500 via-sky-400 to-indigo-600 opacity-75 animate-spin-slow blur-[1px] pointer-events-none"></div>
-
-              {/* 3D Interactive Gradient Ring with Mouse Parallax & Scroll Physics */}
+              {/* 3D Interactive Container with Thin Border */}
               <div
-                className="relative p-[4px] rounded-full bg-gradient-to-tr from-zinc-900 via-zinc-800 to-black shadow-2xl transition-transform duration-300 ease-out"
+                className="relative transition-transform duration-300 ease-out"
                 style={{
-                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 16}deg) rotateX(${-mousePos.y * 16 - scrollRotate * 0.2}deg)`,
+                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 14}deg) rotateX(${-mousePos.y * 14 - scrollRotate * 0.15}deg)`,
                 }}
               >
-                {/* Seamless Circular Frame with Deep Studio Dark Photo */}
-                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] shadow-2xl relative border-2 border-zinc-800/80">
+                {/* Thin Elegant Circular Frame with Deep Studio Dark Photo */}
+                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] shadow-2xl relative border border-cyan-500/40 group-hover:border-cyan-400 transition-colors duration-500">
                   <img
                     src="/profile-side.jpg"
                     alt="Abdul Rafay"
@@ -194,17 +191,17 @@ export default function Hero({ onOpenTerminal }) {
                     loading="eager"
                   />
                   {/* Subtle edge blend overlay for studio realism */}
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_25px_rgba(0,0,0,0.6)] pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"></div>
                 </div>
               </div>
 
-              {/* Floating Tech Micro-Badges */}
-              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none">
+              {/* Floating Tech Micro-Badges with Thin Borders */}
+              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800/90 hover:border-cyan-500/40 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none transition-colors">
                 <Code2 className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Backend // AI</span>
               </div>
 
-              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-emerald-400 pointer-events-none">
+              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800/90 hover:border-emerald-500/40 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-emerald-400 pointer-events-none transition-colors">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Active Coder</span>
               </div>

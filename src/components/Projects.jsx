@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Sparkles } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Projects() {
@@ -7,59 +7,59 @@ export default function Projects() {
 
   const projects = [
     {
-      id: 'b2b-courier',
-      title: 'B2B Courier Dispatch System',
-      category: 'backend',
-      stack: ['Java', 'OOP Architecture', 'REST APIs', 'MySQL', 'Maven'],
-      description: 'Automated B2B logistics and dispatch system developed with Java and Object-Oriented principles for fleet operations, route assignment, and real-time delivery settlements.',
-      thumbnail: '/project-b2b-courier.svg',
-      githubUrl: 'https://github.com/AbdulRafaytech/courier-dispatch-fleet-settlement',
-      liveUrl: null,
-      badge: 'Java Backend System',
-    },
-    {
       id: 'ai-parking',
       title: 'AI Smart Parking System',
       category: 'ai',
-      stack: ['Python', 'Computer Vision', 'AI Automation', 'Streamlit / Flask'],
-      description: 'Intelligent parking allocation and surveillance management system utilizing computer vision workflows to detect spot occupancy and automate ticketing.',
-      thumbnail: '/project-ai-parking.svg',
+      stack: ['Python', 'Computer Vision', 'Deep Learning', 'Flask API'],
+      description: 'Intelligent real-time vehicle license plate detection and parking bay allocation using multi-stage deep learning scanners and IP camera streams.',
+      thumbnail: '/project-ai-parking.png',
       githubUrl: 'https://github.com/AbdulRafaytech/AI-Powered-Smart-Parking-Management-System/tree/main/AI-Powered%20Smart%20Parking%20Management%20System',
       liveUrl: null,
-      badge: 'AI & Automation',
+      badge: 'Deep Learning / Vision',
+    },
+    {
+      id: 'b2b-courier',
+      title: 'B2B Courier Dispatch & Fleet',
+      category: 'backend',
+      stack: ['Java OOP', 'MySQL', 'Fleet Routing', 'COD Settlements'],
+      description: 'Enterprise logistics management desktop engine for parcel assignment, fleet settlement reconciliation, rider tracking, and COD revenue auditing.',
+      thumbnail: '/project-b2b-courier.png',
+      githubUrl: 'https://github.com/AbdulRafaytech/courier-dispatch-fleet-settlement',
+      liveUrl: null,
+      badge: 'Java Enterprise System',
     },
     {
       id: 'saas-auth',
       title: 'SaaS Authentication Module',
       category: 'fullstack',
-      stack: ['React', 'JavaScript', 'Vercel'],
-      description: 'Complete authentication UI built during the InternGrow internship, featuring login, registration, OTP verification, protected routes, session timeout, and password strength validation.',
-      thumbnail: '/project-saas-auth.svg',
+      stack: ['React', 'JavaScript', 'JWT Session', 'Vercel'],
+      description: 'Production-ready authentication system engineered at InternGrow with secure login, OTP verification, protected routes, and session timeout safeguards.',
+      thumbnail: '/project-saas-auth.png',
       githubUrl: 'https://github.com/AbdulRafaytech/InternGrow_RTechAuthenticationSystem',
       liveUrl: 'https://intern-grow-r-tech-authentication-s.vercel.app',
-      badge: 'SaaS Authentication',
+      badge: 'Security & Auth',
     },
     {
       id: 'rtech-hr',
-      title: 'RTech HR',
+      title: 'RTech HR Analytics Dashboard',
       category: 'fullstack',
-      stack: ['React', 'JavaScript', 'Vercel'],
-      description: 'A modern HR dashboard application featuring workforce overview, employee management, department analytics, attendance tracking, and intuitive dashboard metrics.',
-      thumbnail: '/project-rtech-hr.svg',
+      stack: ['React', 'Data Visuals', 'State Logic', 'Vercel'],
+      description: 'Modern enterprise workforce portal featuring interactive attendance trend graphs, department analytics, employee lifecycle, and HR metrics.',
+      thumbnail: '/project-rtech-hr.png',
       githubUrl: 'https://github.com/AbdulRafaytech/InternGrow_RTechHR_Dashboard',
       liveUrl: 'https://intern-grow-r-tech-hr-dashboard.vercel.app/',
-      badge: 'Workforce Analytics',
+      badge: 'Enterprise Analytics',
     },
     {
       id: 'rtech-store',
-      title: 'RTech Store',
+      title: 'RTech Store Image Archive',
       category: 'frontend',
-      stack: ['React', 'JavaScript', 'Vercel'],
-      description: 'A modern e-commerce web application featuring product listings, cart functionality, and a responsive user interface.',
-      thumbnail: '/project-rtech-store.svg',
+      stack: ['React', 'JavaScript', 'Responsive UI', 'Vercel'],
+      description: 'Curated technology image archive and e-commerce showcase featuring category filtering, modular gallery cards, and high-performance client rendering.',
+      thumbnail: '/project-rtech-store.png',
       githubUrl: 'https://github.com/AbdulRafaytech/CodeAlpha_ImageGallery',
       liveUrl: 'https://rtech-store-lovat.vercel.app/',
-      badge: 'E-Commerce UI',
+      badge: 'E-Commerce / Gallery',
     },
   ];
 
@@ -71,30 +71,35 @@ export default function Projects() {
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 text-left">
           <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-mono uppercase text-cyan-400 tracking-widest font-semibold flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Featured Engineering
+              </span>
+            </div>
             <h2 className="section-title font-['Montserrat',sans-serif]">
-              Featured Projects
+              Key Systems &amp; Projects
             </h2>
             <p className="text-sm font-mono text-zinc-400 mt-1">
-              Production applications, Java &amp; backend systems, and live software deployments.
+              Production full-stack applications, Java enterprise systems, and AI computer vision workflows.
             </p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 bg-zinc-950 p-1.5 rounded-xl border border-zinc-800/90 self-start md:self-auto">
             {[
-              { id: 'all', label: 'All' },
+              { id: 'all', label: 'All Projects' },
+              { id: 'ai', label: 'AI & Vision' },
+              { id: 'backend', label: 'Java Backend' },
               { id: 'fullstack', label: 'Full-Stack' },
-              { id: 'backend', label: 'Java & Backend' },
-              { id: 'ai', label: 'AI' },
               { id: 'frontend', label: 'Frontend' },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all cursor-pointer ${
                   filter === tab.id
-                    ? 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/20'
-                    : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold shadow-sm'
+                    : 'text-zinc-400 hover:text-white border border-transparent'
                 }`}
               >
                 {tab.label}
@@ -103,57 +108,58 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Projects Grid with Responsive Sizing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-          {filteredProjects.map((project, idx) => (
+        {/* Compact Responsive Project Grid - Perfectly tailored for 100% zoom laptops */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-left">
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="rounded-xl overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-indigo-500/80 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10"
+              className="rounded-2xl overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1"
             >
-              {/* Zoom-in Thumbnail */}
               <div>
-                <div className="relative aspect-video w-full overflow-hidden bg-black border-b border-zinc-800/80">
+                {/* Compact Screenshot Banner with Real UI */}
+                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-black border-b border-zinc-900">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-black/80 border border-zinc-700 text-zinc-200 font-semibold backdrop-blur-md">
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-black/85 border border-zinc-700/80 text-cyan-300 font-semibold backdrop-blur-md">
                       {project.badge}
                     </span>
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-white font-['Montserrat',sans-serif] group-hover:text-indigo-300 transition-colors">
+                {/* Card Body - Streamlined Padding & Typography */}
+                <div className="p-4 sm:p-4.5">
+                  <h3 className="text-base font-bold text-white font-['Montserrat',sans-serif] group-hover:text-cyan-300 transition-colors line-clamp-1">
                     {project.title}
                   </h3>
 
-                  {/* Tech Stack Pills */}
-                  <div className="mt-2.5 flex flex-wrap gap-1.5">
+                  {/* Compact Tech Stack Pills */}
+                  <div className="mt-2 flex flex-wrap gap-1">
                     {project.stack.map((t, sIdx) => (
                       <span
                         key={sIdx}
-                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800/80"
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900/90 text-zinc-300 border border-zinc-800"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mt-3.5 font-['Inter',sans-serif]">
+                  {/* Concise 2-Line Narrative */}
+                  <p className="text-xs text-zinc-400 leading-relaxed mt-2.5 font-['Inter',sans-serif] line-clamp-2">
                     {project.description}
                   </p>
                 </div>
               </div>
 
-              {/* Actions Row with Responsive Flexbox for 100% Laptop Zoom */}
-              <div className="p-5 pt-0">
-                <div className="pt-4 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-2.5">
-                  <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+              {/* Actions Row - Always Visible & Never Clipped */}
+              <div className="p-4 sm:p-4.5 pt-0">
+                <div className="pt-3 border-t border-zinc-900/90 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
@@ -170,7 +176,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-zinc-500 text-zinc-200 text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-cyan-500/50 text-zinc-200 text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
                     >
                       <Github className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>Source</span>
