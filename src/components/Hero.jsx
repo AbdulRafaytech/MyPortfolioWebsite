@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Activity, MapPin, Clock, Code2, Sparkles } from 'lucide-react';
+import { ArrowRight, Activity, MapPin, Clock, Code2, Terminal } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Hero({ onOpenTerminal }) {
@@ -102,11 +102,18 @@ export default function Hero({ onOpenTerminal }) {
               </h1>
             </div>
 
-            {/* Subtitle */}
-            <h2 className="mt-3 text-xl sm:text-2xl font-bold text-cyan-300 font-mono tracking-tight flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
-              <span>Abdul Rafay | Computer Science Undergraduate</span>
-            </h2>
+            {/* Redesigned Attractive Heading (No AI Sparkles) */}
+            <div className="mt-4 flex flex-wrap items-center gap-2.5 font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/70 border border-emerald-500/40 text-emerald-400 text-xs font-semibold tracking-wider uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Software Engineer
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                <span className="text-white">Abdul Rafay</span>
+                <span className="text-zinc-600 font-normal">/</span>
+                <span className="text-zinc-300 text-base sm:text-lg font-medium">Computer Science Undergraduate</span>
+              </h2>
+            </div>
 
             {/* Description */}
             <p className="mt-4 text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed font-['Inter',sans-serif]">
@@ -162,57 +169,40 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Attractive Modern Studio Portrait with Multi-layer Precision Ring */}
+          {/* Right Column: Simple, Attractive & Modern Studio Portrait */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end animate-fade-up">
             <div
               className="relative group cursor-pointer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              style={{
-                perspective: '1200px',
-              }}
+              style={{ perspective: '1000px' }}
             >
-              {/* Ambient Radial Backglow */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-cyan-500/20 via-indigo-500/15 to-emerald-500/20 blur-2xl pointer-events-none group-hover:opacity-100 opacity-70 transition-opacity duration-700"></div>
+              {/* Subtle Ambient Backglow */}
+              <div className="absolute -inset-2 rounded-3xl bg-zinc-800/40 blur-xl pointer-events-none group-hover:bg-zinc-700/50 transition-all duration-500"></div>
 
-              {/* Decorative Subtle Orbit Ring */}
-              <div className="absolute -inset-3.5 rounded-full border border-cyan-500/20 pointer-events-none animate-spin-slow opacity-60">
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span>
-              </div>
-
-              {/* 3D Interactive Container */}
+              {/* Clean, Simple & Modern Studio Frame (No tacky circles or spinning gimmicks) */}
               <div
-                className="relative transition-transform duration-300 ease-out"
+                className="relative rounded-3xl p-2 bg-zinc-950/90 border border-zinc-800/90 group-hover:border-zinc-700 shadow-2xl transition-transform duration-300 ease-out"
                 style={{
-                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 12}deg) rotateX(${-mousePos.y * 12 - scrollRotate * 0.12}deg)`,
+                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 8}deg) rotateX(${-mousePos.y * 8}deg)`,
                 }}
               >
-                {/* Modern Precision Ring: Dual-tier Gradient Bezel with Deep Void Spacer */}
-                <div className="p-[2.5px] rounded-full bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 shadow-[0_0_35px_rgba(6,182,212,0.35)] group-hover:shadow-[0_0_55px_rgba(6,182,212,0.55)] transition-all duration-500">
-                  <div className="p-[3.5px] rounded-full bg-[#020408]">
-                    <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] relative">
-                      <img
-                        src="/profile-side.jpg"
-                        alt="Abdul Rafay"
-                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                        loading="eager"
-                      />
-                      {/* Studio Edge Vignette */}
-                      <div className="absolute inset-0 rounded-full shadow-[inset_0_0_24px_rgba(0,0,0,0.6)] pointer-events-none"></div>
-                    </div>
-                  </div>
+                <div className="w-60 h-68 sm:w-68 sm:h-76 md:w-72 md:h-80 lg:w-76 lg:h-84 rounded-2xl overflow-hidden bg-black relative">
+                  <img
+                    src="/profile-side.jpg"
+                    alt="Abdul Rafay"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-103"
+                    loading="eager"
+                  />
+                  {/* Subtle inner shadow for studio depth */}
+                  <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.4)] pointer-events-none"></div>
                 </div>
               </div>
 
-              {/* Floating Tech Micro-Badges with Glassmorphism */}
-              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800/90 hover:border-cyan-500/50 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none transition-colors animate-float-slow">
-                <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Backend // AI</span>
-              </div>
-
-              <div className="absolute -top-1.5 -right-1.5 bg-zinc-950/90 border border-zinc-800/90 hover:border-emerald-500/50 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 text-xs font-mono text-emerald-400 pointer-events-none transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Active Dev</span>
+              {/* Clean Minimalist Status Pill */}
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-zinc-950/95 border border-zinc-800 px-4 py-1.5 rounded-full shadow-lg flex items-center gap-2 text-xs font-mono text-zinc-300 whitespace-nowrap">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span className="tracking-wide">CS Undergrad · Active Coder</span>
               </div>
             </div>
           </div>

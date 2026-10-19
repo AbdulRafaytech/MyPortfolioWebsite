@@ -59,19 +59,19 @@ export default function About() {
 
             {/* Engineering Metric Badges */}
             <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3.5 font-mono">
-              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-cyan-500 shadow-sm">
+              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-emerald-500 shadow-sm">
                 <span className="text-2xl font-black text-white block">2</span>
                 <span className="text-xs text-zinc-400">Key Internships</span>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-indigo-500 shadow-sm">
+              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-amber-500 shadow-sm">
                 <span className="text-2xl font-black text-white block">7</span>
                 <span className="text-xs text-zinc-400">Certifications</span>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-purple-500 shadow-sm">
+              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-indigo-500 shadow-sm">
                 <span className="text-2xl font-black text-white block">5</span>
                 <span className="text-xs text-zinc-400">Key Projects</span>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-emerald-500 shadow-sm">
+              <div className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 border-l-4 border-l-teal-500 shadow-sm">
                 <span className="text-2xl font-black text-white block">3.38</span>
                 <span className="text-xs text-zinc-400">NUML CGPA</span>
               </div>

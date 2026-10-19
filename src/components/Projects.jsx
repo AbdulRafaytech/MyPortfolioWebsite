@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ExternalLink, FolderGit2 } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Projects() {
@@ -16,6 +16,8 @@ export default function Projects() {
       githubUrl: 'https://github.com/AbdulRafaytech/AI-Powered-Smart-Parking-Management-System/tree/main/AI-Powered%20Smart%20Parking%20Management%20System',
       liveUrl: null,
       badge: 'Deep Learning / Vision',
+      badgeStyle: 'bg-amber-950/60 border-amber-800/70 text-amber-300',
+      borderGlow: 'hover:border-amber-500/50 hover:shadow-amber-500/10',
     },
     {
       id: 'b2b-courier',
@@ -27,6 +29,8 @@ export default function Projects() {
       githubUrl: 'https://github.com/AbdulRafaytech/courier-dispatch-fleet-settlement',
       liveUrl: null,
       badge: 'Java Enterprise System',
+      badgeStyle: 'bg-emerald-950/60 border-emerald-800/70 text-emerald-300',
+      borderGlow: 'hover:border-emerald-500/50 hover:shadow-emerald-500/10',
     },
     {
       id: 'saas-auth',
@@ -38,6 +42,8 @@ export default function Projects() {
       githubUrl: 'https://github.com/AbdulRafaytech/InternGrow_RTechAuthenticationSystem',
       liveUrl: 'https://intern-grow-r-tech-authentication-s.vercel.app',
       badge: 'Security & Auth',
+      badgeStyle: 'bg-indigo-950/60 border-indigo-800/70 text-indigo-300',
+      borderGlow: 'hover:border-indigo-500/50 hover:shadow-indigo-500/10',
     },
     {
       id: 'rtech-hr',
@@ -49,6 +55,8 @@ export default function Projects() {
       githubUrl: 'https://github.com/AbdulRafaytech/InternGrow_RTechHR_Dashboard',
       liveUrl: 'https://intern-grow-r-tech-hr-dashboard.vercel.app/',
       badge: 'Enterprise Analytics',
+      badgeStyle: 'bg-teal-950/60 border-teal-800/70 text-teal-300',
+      borderGlow: 'hover:border-teal-500/50 hover:shadow-teal-500/10',
     },
     {
       id: 'rtech-store',
@@ -60,6 +68,8 @@ export default function Projects() {
       githubUrl: 'https://github.com/AbdulRafaytech/CodeAlpha_ImageGallery',
       liveUrl: 'https://rtech-store-lovat.vercel.app/',
       badge: 'E-Commerce / Gallery',
+      badgeStyle: 'bg-rose-950/60 border-rose-800/70 text-rose-300',
+      borderGlow: 'hover:border-rose-500/50 hover:shadow-rose-500/10',
     },
   ];
 
@@ -72,8 +82,8 @@ export default function Projects() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 text-left">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-mono uppercase text-cyan-400 tracking-widest font-semibold flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Featured Engineering
+              <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-semibold flex items-center gap-1.5">
+                <FolderGit2 className="w-3.5 h-3.5" /> Featured Engineering
               </span>
             </div>
             <h2 className="section-title font-['Montserrat',sans-serif]">
@@ -98,7 +108,7 @@ export default function Projects() {
                 onClick={() => setFilter(tab.id)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all cursor-pointer ${
                   filter === tab.id
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold shadow-sm'
+                    ? 'bg-zinc-800 text-white border border-zinc-650 font-bold shadow-sm'
                     : 'text-zinc-400 hover:text-white border border-transparent'
                 }`}
               >
@@ -113,36 +123,40 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="rounded-2xl overflow-hidden bg-zinc-950/90 border border-zinc-800/80 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1"
+              className={`rounded-2xl overflow-hidden bg-zinc-950/90 border border-zinc-850 ${project.borderGlow} transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:-translate-y-1`}
             >
               <div>
-                {/* Compact Screenshot Banner with Real UI */}
-                <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-black border-b border-zinc-900">
+                {/* Clean Screenshot Banner - NO OVERLAY BADGE HIDING THE UI */}
+                <div className="relative h-42 sm:h-46 w-full overflow-hidden bg-black border-b border-zinc-900">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover object-top group-hover:scale-104 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md bg-black/85 border border-zinc-700/80 text-cyan-300 font-semibold backdrop-blur-md">
-                      {project.badge}
-                    </span>
-                  </div>
                 </div>
 
-                {/* Card Body - Streamlined Padding & Typography */}
-                <div className="p-4 sm:p-4.5">
-                  <h3 className="text-base font-bold text-white font-['Montserrat',sans-serif] group-hover:text-cyan-300 transition-colors line-clamp-1">
+                {/* Card Body - Streamlined Padding & Relocated Category Badge */}
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded-md border ${project.badgeStyle} font-semibold`}>
+                      {project.badge}
+                    </span>
+                    <span className="text-[11px] font-mono text-zinc-500">
+                      2026
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-white font-['Montserrat',sans-serif] group-hover:text-emerald-300 transition-colors line-clamp-1">
                     {project.title}
                   </h3>
 
                   {/* Compact Tech Stack Pills */}
-                  <div className="mt-2 flex flex-wrap gap-1">
+                  <div className="mt-2.5 flex flex-wrap gap-1">
                     {project.stack.map((t, sIdx) => (
                       <span
                         key={sIdx}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900/90 text-zinc-300 border border-zinc-800"
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-300 border border-zinc-800"
                       >
                         {t}
                       </span>
@@ -157,8 +171,8 @@ export default function Projects() {
               </div>
 
               {/* Actions Row - Always Visible & Never Clipped */}
-              <div className="p-4 sm:p-4.5 pt-0">
-                <div className="pt-3 border-t border-zinc-900/90 flex items-center justify-between gap-2">
+              <div className="p-4 sm:p-5 pt-0">
+                <div className="pt-3 border-t border-zinc-900 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     {project.liveUrl && (
                       <a
@@ -176,16 +190,12 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-cyan-500/50 text-zinc-200 text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-850 border border-zinc-750 hover:border-zinc-600 text-zinc-200 text-xs font-medium transition-colors cursor-pointer whitespace-nowrap"
                     >
                       <Github className="w-3.5 h-3.5 flex-shrink-0" />
-                      <span>Source</span>
+                      <span>GitHub</span>
                     </a>
                   </div>
-
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase flex-shrink-0">
-                    PROJ // 0{projects.indexOf(project) + 1}
-                  </span>
                 </div>
               </div>
             </div>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Calendar, Award, GraduationCap, MapPin, Sparkles, Binary, Database, Cpu, Globe2 } from 'lucide-react';
+import { Calendar, Award, MapPin, BookOpen, Binary, Database, Cpu, Globe2, School } from 'lucide-react';
 
 export default function Education() {
   const coreDomains = [
     {
       title: 'Algorithms & Data Structures',
       icon: Binary,
-      color: 'text-cyan-400',
-      bg: 'bg-cyan-950/40 border-cyan-800/40',
+      color: 'text-amber-400',
+      bg: 'bg-amber-950/40 border-amber-800/40',
       topics: ['Data Structures', 'Big-O Analysis', 'Graph Traversals'],
     },
     {
@@ -27,8 +27,8 @@ export default function Education() {
     {
       title: 'Web Engineering & Networks',
       icon: Globe2,
-      color: 'text-sky-400',
-      bg: 'bg-sky-950/40 border-sky-800/40',
+      color: 'text-teal-400',
+      bg: 'bg-teal-950/40 border-teal-800/40',
       topics: ['RESTful APIs', 'OS Concurrency', 'TCP/IP Protocols'],
     },
   ];
@@ -39,8 +39,8 @@ export default function Education() {
         {/* Section Heading */}
         <div className="text-left mb-10">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-mono uppercase text-cyan-400 tracking-widest font-semibold flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> University Credentials
+            <span className="text-xs font-mono uppercase text-indigo-400 tracking-widest font-semibold flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5" /> University Credentials
             </span>
           </div>
           <h2 className="section-title font-['Montserrat',sans-serif]">
@@ -52,20 +52,25 @@ export default function Education() {
         </div>
 
         {/* Compact, Modern Academic Showcase Card */}
-        <div className="relative rounded-2xl bg-zinc-950/90 border border-zinc-850 hover:border-cyan-500/50 transition-all duration-300 shadow-xl p-5 sm:p-7 text-left group overflow-hidden">
+        <div className="relative rounded-2xl bg-zinc-950/90 border border-zinc-800 hover:border-indigo-500/50 transition-all duration-300 shadow-xl p-5 sm:p-7 text-left group overflow-hidden">
           {/* Subtle Top Glowing Line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500 via-indigo-500 to-transparent opacity-70 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 via-emerald-500 to-transparent opacity-70 group-hover:opacity-100 transition-opacity"></div>
 
-          {/* Primary Degree Banner */}
+          {/* Primary Degree Banner with NUML Logo */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 pb-6 border-b border-zinc-900">
             <div className="flex items-center gap-4">
-              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-cyan-950/50 border border-cyan-800/60 text-cyan-400 shadow-inner flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                <GraduationCap className="w-7 h-7" />
+              {/* NUML Official Seal in Pristine Circular Container */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white p-1 flex items-center justify-center flex-shrink-0 shadow-lg border-2 border-indigo-500/30 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                <img
+                  src="/logo-numl.png"
+                  alt="NUML University Official Seal"
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
 
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono uppercase text-cyan-400 font-semibold tracking-wider">
+                  <span className="text-xs font-mono uppercase text-indigo-400 font-semibold tracking-wider">
                     Undergraduate Degree
                   </span>
                   <span className="text-zinc-600 text-xs">•</span>
@@ -82,13 +87,13 @@ export default function Education() {
 
             {/* Academic Standing & Timeline Badges */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <div className="px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-800/70 flex items-center gap-2 text-xs font-mono text-emerald-300 font-bold shadow-sm">
+              <div className="px-3.5 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-800/70 flex items-center gap-2 text-xs font-mono text-emerald-300 font-bold shadow-sm">
                 <Award className="w-3.5 h-3.5 text-emerald-400" />
                 <span>CGPA: 3.38 / 4.00</span>
               </div>
 
               <div className="px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-zinc-800 flex items-center gap-2 text-xs font-mono text-zinc-300">
-                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                <Calendar className="w-3.5 h-3.5 text-indigo-400" />
                 <span>2024 – 2028</span>
               </div>
 
@@ -102,6 +107,7 @@ export default function Education() {
           {/* Compact 4-Domain Grid */}
           <div className="pt-6">
             <h4 className="text-xs font-mono uppercase text-zinc-400 tracking-wider mb-4 flex items-center gap-2 font-semibold">
+              <School className="w-3.5 h-3.5 text-zinc-400" />
               <span>Core Academic Curriculum &amp; Specializations</span>
             </h4>
 

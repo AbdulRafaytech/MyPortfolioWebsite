@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone, MapPin, Sparkles, Send } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin, Compass, Send } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#hero" className="inline-block group">
-              <span className="text-2xl font-black tracking-tight text-white uppercase font-mono group-hover:text-cyan-400 transition-colors">
+              <span className="text-2xl font-black tracking-tight text-white uppercase font-mono group-hover:text-emerald-400 transition-colors">
                 Abdul Rafay
               </span>
             </a>
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Column 2: Quick Links (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <Compass className="w-3.5 h-3.5 text-emerald-400" />
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs font-['Inter',sans-serif]">
