@@ -162,7 +162,7 @@ export default function Hero({ onOpenTerminal }) {
             </div>
           </div>
 
-          {/* Right Column: Circular Studio Portrait with Sleek Thin Border & Parallax */}
+          {/* Right Column: Attractive Modern Studio Portrait with Multi-layer Precision Ring */}
           <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-end animate-fade-up">
             <div
               className="relative group cursor-pointer"
@@ -172,38 +172,47 @@ export default function Hero({ onOpenTerminal }) {
                 perspective: '1200px',
               }}
             >
-              {/* Soft Subtle Cyan Ambient Halo */}
-              <div className="absolute -inset-3 rounded-full bg-cyan-500/10 blur-xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+              {/* Ambient Radial Backglow */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-cyan-500/20 via-indigo-500/15 to-emerald-500/20 blur-2xl pointer-events-none group-hover:opacity-100 opacity-70 transition-opacity duration-700"></div>
 
-              {/* 3D Interactive Container with Thin Border */}
+              {/* Decorative Subtle Orbit Ring */}
+              <div className="absolute -inset-3.5 rounded-full border border-cyan-500/20 pointer-events-none animate-spin-slow opacity-60">
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span>
+              </div>
+
+              {/* 3D Interactive Container */}
               <div
                 className="relative transition-transform duration-300 ease-out"
                 style={{
-                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 14}deg) rotateX(${-mousePos.y * 14 - scrollRotate * 0.15}deg)`,
+                  transform: `scale(${scrollScale}) rotateY(${mousePos.x * 12}deg) rotateX(${-mousePos.y * 12 - scrollRotate * 0.12}deg)`,
                 }}
               >
-                {/* Thin Elegant Circular Frame with Deep Studio Dark Photo */}
-                <div className="w-60 h-60 sm:w-68 sm:h-68 md:w-76 md:h-76 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] shadow-2xl relative border border-cyan-500/40 group-hover:border-cyan-400 transition-colors duration-500">
-                  <img
-                    src="/profile-side.jpg"
-                    alt="Abdul Rafay"
-                    className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
-                    loading="eager"
-                  />
-                  {/* Subtle edge blend overlay for studio realism */}
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"></div>
+                {/* Modern Precision Ring: Dual-tier Gradient Bezel with Deep Void Spacer */}
+                <div className="p-[2.5px] rounded-full bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 shadow-[0_0_35px_rgba(6,182,212,0.35)] group-hover:shadow-[0_0_55px_rgba(6,182,212,0.55)] transition-all duration-500">
+                  <div className="p-[3.5px] rounded-full bg-[#020408]">
+                    <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-[#09090d] relative">
+                      <img
+                        src="/profile-side.jpg"
+                        alt="Abdul Rafay"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="eager"
+                      />
+                      {/* Studio Edge Vignette */}
+                      <div className="absolute inset-0 rounded-full shadow-[inset_0_0_24px_rgba(0,0,0,0.6)] pointer-events-none"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Floating Tech Micro-Badges with Thin Borders */}
-              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800/90 hover:border-cyan-500/40 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none transition-colors">
+              {/* Floating Tech Micro-Badges with Glassmorphism */}
+              <div className="absolute -bottom-2 -left-2 bg-zinc-950/90 border border-zinc-800/90 hover:border-cyan-500/50 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 text-xs font-mono text-zinc-200 pointer-events-none transition-colors animate-float-slow">
                 <Code2 className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Backend // AI</span>
               </div>
 
-              <div className="absolute -top-1 -right-1 bg-zinc-950/90 border border-zinc-800/90 hover:border-emerald-500/40 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-mono text-emerald-400 pointer-events-none transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>Active Coder</span>
+              <div className="absolute -top-1.5 -right-1.5 bg-zinc-950/90 border border-zinc-800/90 hover:border-emerald-500/50 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 text-xs font-mono text-emerald-400 pointer-events-none transition-colors">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active Dev</span>
               </div>
             </div>
           </div>

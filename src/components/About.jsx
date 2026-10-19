@@ -41,8 +41,8 @@ export default function About() {
           <h2 className="section-title font-['Montserrat',sans-serif]">
             About Me
           </h2>
-          <p className="text-sm font-mono text-zinc-400 mt-1">
-            Software engineering philosophy, technical positioning, and core competencies.
+          <p className="text-sm font-mono text-cyan-400/90 mt-1">
+            Architecting scalable backend infrastructure, modern reactive interfaces, and AI-accelerated software systems.
           </p>
         </div>
 
